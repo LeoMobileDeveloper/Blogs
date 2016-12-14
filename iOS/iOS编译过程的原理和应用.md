@@ -403,7 +403,8 @@ xcrun -sdk iphoneos PackageApplication -v $appDir/$projectName.app -o $appDir/$i
 通过info命令，可以查看到详细的文档
 info xcodebuild
 ```
-在本文最后的附录中，提供了我之前使用的一个自动打包的脚本。
+ - [完整的脚本](https://github.com/LeoMobileDeveloper/Blogs/blob/master/DemoProjects/Scripts/autoIPA.sh)，使用的时候，需要拷贝到工程的根目录
+
 
 ### 提高项目编译速度
 通常，当项目很大，源代码和三方库引入很多的时候，我们会发现编译的速度很慢。在了解了XCode的编译过程后，我们可以从以下角度来优化编译速度：
@@ -440,6 +441,7 @@ XCode的pch文件是预编译文件，这里的内容在执行XCode build之前�
 
 #### Debug模式下，关闭编译器优化
 编译器优化
+
 <img src="http://img.blog.csdn.net/20161206231413542?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 ------
