@@ -1,6 +1,4 @@
 ## 关于我
-毕业于[南京大学](http://www.nju.edu.cn/)，之前在[Cisco System](http://www.cisco.com/)负责iOS和物联网相关开发，目前在[蜻蜓FM](http://www.qingting.fm/)负责主App的开发和维护。考虑到博客不适合存代码和示例工程，所以示例工程和博客备份会放到这个仓库来存储。
-
 - [我的CSDN博客](blog.csdn.net/hello_hwc?viewmode=list)
 - [我的StackoverFlow](stackoverflow.com/users/3940672/leo)
 
