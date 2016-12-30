@@ -19,14 +19,28 @@ iOS开发目前的常用语言是：Objective和Swift。二者都是编译语言
 
 ----------
 ## iOS编译
-不管是OC还是Swift，都是采用Clang作为编译器前端，LLVM(Low level vritual machine)作为编译器后端。
+不管是OC还是Swift，都是采用Clang作为编译器前端，LLVM(Low level vritual machine)作为编译器后端。所以简单的编译过程如图
+
+
+<img src="http://img.blog.csdn.net/20161230152935250?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 ### 编译器前端
 
 > 编译器前端的任务是进行：语法分析，语义分析，生成中间代码(intermediate representation )。在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。
 
+<img src="http://img.blog.csdn.net/20161230153325161?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+
 ### 编译器后端
-> 编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化。
+> 编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化。iOS的编译过程，后端的处理如下
+
+- **LVVM优化器会进行BitCode的生成，链接期优化等等**。
+
+<img src="http://img.blog.csdn.net/20161230153522237?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+
+- **LLVM机器码生成器会针对不同的架构，比如arm64等生成不同的机器码**。
+
+<img src="http://img.blog.csdn.net/20161230153750597?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+
 
 ----------
 ## 执行一次XCode build的流程
