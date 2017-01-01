@@ -19,6 +19,12 @@
 当然，playground还有其他操作区域。后面用到的时候，我们再来讲解。
 
 ## 第一个例子
+本文用到的两个playground
+
+- [BasicPlayground.playground](https://github.com/LeoMobileDeveloper/Blogs/tree/master/DemoProjects/Playgrounds/BasicPlayground.playground)
+- [NewtonsCradle.playground](https://github.com/LeoMobileDeveloper/Blogs/tree/master/DemoProjects/Playgrounds/NewtonsCradle.playground)
+
+
 打开XCode->Get started with a playground。新建一个Playground，命名为**BasicPlayground**，这个完整的文件可以在这里下载到。
 最开始，这个Playground文件很简单。当我们把鼠标移动到辅助窗口的“hello playground”上面的时候，这时候的效果如下
 
@@ -253,7 +259,6 @@ markup块
 - 算法编写
 - 快速原型开发
 - 编写图文并茂的代码讲解，比如playground book
-
 
 ## Playground资源
 
