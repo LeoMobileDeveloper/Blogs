@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='Basic'/>
+        <page name='WorkItem'/>
+        <page name='Barrier'/>
+        <page name='Timer'/>
+        <page name='dataAdd_dataOr'/>
+        <page name='Group'/>
+        <page name='Semaphore'/>
+        <page name='Signal'/>
+    </pages>
+</playground>

@@ -63,7 +63,6 @@ let queue = DispatchQueue(label: label, qos: qos, attributes: attributes, autore
 - `qos` 队列的[quality of service](http://developer.apple.com/reference/dispatch/dispatchqos)。用来指明队列的“重要性”，后文会详细讲到。
 - `attributes` 队列的属性。类型是`DispatchQueue.Attributes`,是一个结构体，遵循了协议[OptionSet](https://developer.apple.com/reference/swift/optionset)。意味着你可以这样传入第一个参数[.option1,.option2]
 - `autoreleaseFrequency`。顾名思义，自动释放频率。有些队列是会在执行完任务后自动释放的，有些比如Timer等是不会自动释放的，是需要手动释放。
-- target,`DispatchQueue?`类型对象 TODO：
 
 
 ----
@@ -213,7 +212,7 @@ QoS的全称是quality of service。在Swift 3中，它是一个结构体，用�
 
 通常使用QoS为以下四种
 
-<img src="http://img.blog.csdn.net/20170105165829845?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="http://img.blog.csdn.net/20170105165829845?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
 
 从上到下优先级依次降低。
 
@@ -344,7 +343,7 @@ DispatchQueue.global().asyncAfter(wallDeadline: walltime) {
 | DispatchSourceUserDataAdd | 用户自定义数据add|
 | DispatchSourceUserDataOr      |   用户自定义数据Or |
 | DispatchSourceMachSend      |    Mach端口发送 |
-| DispatchSourceMachReceive      |    Mach端口接受 |
+| DispatchSourceMachReceive      |    Mach端口接收 |
 | DispatchSourceMemoryPressure      |   内存压力 |
 | DispatchSourceProcess      |    进程事件 |
 | DispatchSourceRead      |   读数据 |
@@ -353,7 +352,7 @@ DispatchQueue.global().asyncAfter(wallDeadline: walltime) {
 | DispatchSourceFileSystemObject      |    文件系统 |
 | DispatchSourceWrite      |    写数据 |
 
-这里，先讲解Timer，因为iOS开发比较常用，本文的最后部分会以Linux为力，讲解如何使用其他Source。
+本文只会涉及到timer和userData,其余的平实开发几乎用不到。
 
 >Tips: `DispatchSource`这个class很好的体现了Swift是一门面向协议的语言。这个类是一个工厂类，用来实现各种source。比如DispatchSourceTimer（本身是个协议）表示一个定时器。
 
@@ -567,8 +566,6 @@ public func usbTask(label:String, cost:UInt32, complete:@escaping ()->()){
 ```
 很简单，打印log，休眠，然后调用complete给出回调。
 
-然后，log如下
-
 ```
 PlaygroundPage.current.needsIndefiniteExecution = true
 
@@ -673,7 +670,7 @@ concurrentQueue.async {
 - DispatchSourceUserDataAdd 
 - DispatchSourceUserDataOr
 
-> 在使用这两种Source的时候，GCD会帮助我们自动的将这些改变合并，然后在适当的时候（比如target queue空闲）的时候，去回调`EventHandler`,从而避免了频繁的回调导致CPU占用过多。
+> 在使用这两种Source的时候，GCD会帮助我们自动的将这些改变合并，然后在**适当的时候（target queue空闲）的时候**，去回调`EventHandler`,从而避免了频繁的回调导致CPU占用过多。
 
 
 比如，对于`DispatchSourceUserDataAdd`你可以这么使用，
@@ -742,33 +739,34 @@ class MyData{
 
 ----
 ## 死锁
+GCD对线程进行了很好的封装，但是仍然又可能出现死锁。所谓死锁，就是线程之间相互等待对方执行，才能继续执行，导致进入了一个死循环的状态。
 
-----
-## Linux/Mac OS
+最简单的死锁，在main线程上sync自己。
 
-GCD有很多技术在iOS上应用甚少，但是Swift是一门跨平台的语言，所以接下来的一部分都是以其在Mac OS上的应用为例。
+```
+DispatchQueue.main.sync {
+    print("You can not see this log")
+}
+```
+> 原因也比较好理解，在调用sync的时候，main队列被阻塞，等到代码块执行完毕才会继续执行。因为main被阻塞，就导致了代码块无法执行，进而形成死锁。
 
-### DispatchIO
->DispatchIO provides a channel to perform operations on file descriptor using either stream-based and random-access semantics for accessing the contents of a file descriptor.
->
->DispatchIO提供了一种按照流或者随机访问的方式来读写一个文件。
+还有一种死锁，简单的代码如下
 
-比如，我们用Swift写一个简单的Linux程序。能够根据stdin的输入，把stdout写入到Log文件里，这是一个典型的stream-based。
+```
+queueA.sync {
+    queueB.sync {
+        queueC.sync {
+            queueA.sync {
+                
+            }
+        }
+    }
+}
 
-为了方便使用底层的`FileDescriptor`,写了几个源文件对底层进行了简单封装。
+```
+死锁的原因很简单，形成了一个相互阻塞的环。
 
+<img src="http://img.blog.csdn.net/20170109213321664?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
 
-----
-## Mach
-
----
-## FileSystem
-
-----
-## Signal
-
----
-
-## 总结
 
 
