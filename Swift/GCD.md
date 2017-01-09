@@ -697,16 +697,13 @@ serialQueue.async {
     }
 }
 ```
-然后，你会发现Log
-
+然后，你会发现Log类似
 ```
 Add 32 to global and current global is 32
 Add 1321 to global and current global is 1353
 Add 617 to global and current global is 1970
 Add 30 to global and current global is 2000
 ```
-
-这个示例代码有些抽象，为了更好的理解和应用，我们举一个更加形象的例子。
 
 -----
 
