@@ -8,9 +8,9 @@
 # 目录
 
 - [iOS](#iOS)
-- [Objective C](#Objective C)
+- [Objective C](#ObjectiveC)
 - [Swift](#Swift)
-- [React Native](#React Native)
+- [React Native](#ReactNative)
 
 -----
 ## iOS
@@ -19,7 +19,7 @@
 
 -----
 
-## Objective C
+## ObjectiveC
 
 -----
 
@@ -30,7 +30,8 @@
 - [优雅的开发Swift和Objective C混编的Framework.md](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/%20%E4%BC%98%E9%9B%85%E7%9A%84%E5%BC%80%E5%8F%91Swift%E5%92%8CObjective%20C%E6%B7%B7%E7%BC%96%E7%9A%84Framework.md)
 - [Swift中的错误处理](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/ErrorHandling.md)
 -----
-## React Native
+## ReactNative
 
+- [React Native开发之IDE（Atom+Nuclide）安装，运行，调试](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative%20IDE%20Setup.md)
 -----
 
