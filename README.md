@@ -34,6 +34,8 @@
 -----
 ## ReactNative
 
-- [React Native开发之IDE（Atom+Nuclide）安装，运行，调试](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative%20IDE%20Setup.md)
+- [React Native开发之IDE（Atom+Nuclide）安装，运行，调试](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/ReactNative%20IDE%20Setup.md)
+- [React Native开发之动画](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Animations.md)
+- [React Native开发之Navigator](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Navigator.md)
 -----
 
