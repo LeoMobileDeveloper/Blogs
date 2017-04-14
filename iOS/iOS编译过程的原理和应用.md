@@ -337,6 +337,10 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 
 -  [iOS 合理利用Clang警告来提高代码质量](http://blog.csdn.net/Hello_Hwc/article/details/46425503)
 
+在这个链接，你可以找到所有的Clang warnings警告
+
+- [fuckingclangwarnings](http://fuckingclangwarnings.com/)
+
 ### 预处理
 
 所谓预处理，就是在编译之前的处理。预处理能够让你定义编译器变量，实现条件编译。
