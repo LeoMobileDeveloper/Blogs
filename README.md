@@ -28,8 +28,9 @@
 -----
 ## ReactNative
 
-- [React Native开发之IDE（Atom+Nuclide）安装，运行，调试](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/ReactNative%20IDE%20Setup.md)
-- [React Native开发之动画](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Animations.md)
-- [React Native开发之Navigator](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Navigator.md)
+- [IDE（Atom+Nuclide）配置：安装，运行，调试](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/ReactNative%20IDE%20Setup.md)
+- [动画详解](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Animations.md)
+- [细说Navigator](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Navigator.md)
+- [flexbox入门](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/FlexBox.md)
 -----
 
