@@ -59,7 +59,7 @@ Container和Item
 --------------
 
  - Container就是容器，有些属性是设置到Container上的例如alignItems。<font color="orange">设置到Container上的属性决定了如何布局内部的Item</font>
- - Item， 在容器中的子视图。<font color="orange">设置到Item上的属性，决定了自己在Container中的位置大笑</font>
+ - Item， 在容器中的子视图。<font color="orange">设置到Item上的属性，决定了自己在Container中的位置大小</font>
 
 > 有过iOS或者安卓原生开发的同学应该能有个更清楚的认识，很像View和Subview的关系
 
