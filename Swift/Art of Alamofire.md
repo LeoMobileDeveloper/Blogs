@@ -3,9 +3,9 @@
 
 ## 前言
 
-[Alamofire](https://github.com/Alamofire/Alamofire)：一个由Swift编写的优雅的开发框架。
+[Alamofire](https://github.com/Alamofire/Alamofire)：一个由Swift编写的优雅的网络开发框架。
 
-大部分用Swift编写的iOS App的网络模块都是基于Alamofire的。作为Swift社区最活跃的几个项目之一，有许多开发者在不断的对其进行完善，所以学习这种优秀的开源代码对深入理解Swift的特性很有帮助。
+大部分用Swift编写的App的网络模块都是基于Alamofire的。作为Swift社区最活跃的几个项目之一，有许多开发者在不断的对其进行完善，所以学习这种优秀的开源代码对深入理解Swift的特性很有帮助。
 
 本文很长，大到整个框架的设计，小到某些基础功能的使用都会涉及。
 
