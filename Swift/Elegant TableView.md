@@ -51,9 +51,9 @@ Delegate/DataSource中，有许多重复的代码。比如：
     if (cell == nil) {
         cell = [[YourCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
-    infoCell.leftLabel.text = titleArray[indexPath.row];
-    infoCell.infoIcon.image = [UIImage imageNamed:imageArray[indexPath.row]];
-    infoCell.rightLabel.text = rightArray[indexPath.row];
+    cell.leftLabel.text = titleArray[indexPath.row];
+    cell.infoIcon.image = [UIImage imageNamed:imageArray[indexPath.row]];
+    cell.rightLabel.text = rightArray[indexPath.row];
     return infoCell;
 }
 ```
@@ -303,7 +303,7 @@ MDTable是一个模型驱动的框架。使用MDTable，你的Controller会变�
 ```
 let row0_0 = SystemRow(title: "System Cell", accessoryType: .disclosureIndicator)
 let row0_1 = SystemRow(title: "Custom Cell", accessoryType: .disclosureIndicator)
-let section0 = SystemSection(rows: [row0_0]])
+let section0 = SystemSection(rows: [row0_0,row0_1]])
 section0.titleForHeader = "Basic"
     
 tableManager = TableManager(sections: [section0,section1])
