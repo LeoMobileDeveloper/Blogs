@@ -482,7 +482,7 @@ group.notify(queue: .main, execute:{
 All network is done
 ```
 
-###wait
+### wait
 
 DispatchGroup支持阻塞当前线程，等待执行结果
 
