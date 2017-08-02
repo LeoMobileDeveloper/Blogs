@@ -18,6 +18,7 @@
 - [越狱+Reveal 7分析三方AppUI框架教程](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/iOS%E8%B6%8A%E7%8B%B1%2BReveal%207%E5%88%86%E6%9E%90%E4%B8%89%E6%96%B9AppUI%E6%A1%86%E6%9E%B6%E6%95%99%E7%A8%8B.md)
 - [MVVM和Controller瘦身实践](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/MVVM%20and%20Controller%20thin.md)
 - [优雅的开发TableView](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Elegant%20TableView.md)
+- [60fps的网易云音乐首页](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/60fps%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E9%A6%96%E9%A1%B5.md)
 -----
 
 ## ObjectiveC
