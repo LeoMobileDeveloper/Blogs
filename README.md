@@ -1,7 +1,6 @@
 ## 关于我
 
 - [CSDN博客](http://blog.csdn.net/hello_hwc?viewmode=list)
-- [简书](http://www.jianshu.com/u/852cee407979)
 - [StackoverFlow](http://stackoverflow.com/users/3940672/leo)
 
 如果发现博客有内容上的问题，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs/issues)。
