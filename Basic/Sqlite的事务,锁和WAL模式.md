@@ -56,7 +56,7 @@ commit;
 
 常见的模型：一个数据库文件，多个连接，每个连接有自己的语句。
 
-<img src="http://img.blog.csdn.net/20180128173317325?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="http://img.blog.csdn.net/20180128173317325?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
 
 一些名词的解释：
 
@@ -78,7 +78,7 @@ commit;
 
 Sqlite采用粗粒度的锁。**当一个连接尝试写数据库的时候，所有其他连接都被锁住，直到写连接结束它的事务**。Sqlite有一个加锁表，用来帮助不同的写数据库都能在最后一刻加锁。
 
-<img src="/Users/huangwenchen/Desktop/sqlite_lock.png">
+<img src="http://img-blog.csdn.net/20180321224754105?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="500">
 
 状态:
 
@@ -97,8 +97,6 @@ Sqlite采用粗粒度的锁。**当一个连接尝试写数据库的时候，所
 锁的变化状态：
 
 UNLOCKED -> PENDING -> SHARED -> UNLOCKED
-
-
 
 
 ### 写
