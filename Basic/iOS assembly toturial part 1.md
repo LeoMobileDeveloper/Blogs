@@ -1,16 +1,16 @@
 ## 前言
 
-日常的应用开发中，主要用的语言是Objective(Swift),一些特殊场景下,可能还会用到C/C++,JavaScript,Shell,Python等。
+日常的应用开发中，主要用的语言是Objective(Swift)，一些特殊场景下，可能还会用到C/C++，JavaScript，Shell，Python等。
 
 那么，一个iOS开发者为什么要了解汇编这么底层的语言呢？
 
 > 因为看得懂汇编能够提高的代码调试和逆向能力。
 
-本文是作者学习汇编过程中整理的笔记，分为上下两篇，上篇是基础准备，下篇主要介绍Objective C汇编和一些逆向的例子。
+本文是作者学习汇编过程中整理的笔记，分为上下两篇：上篇主要是一些基础准备，下篇介绍Objective C汇编和一些逆向的Demo。
 
 ## 命令行
 
-Objective C的编译器是Clang + LLVM，如果源代码是Swift，那么编译器是swift + LLVM。
+Objective C源文件(.m)的编译器是Clang + LLVM，Swift源文件的编译器是swift + LLVM。
 
 所以借助clang命令，我们可以查看一个.c或者.m源文件的汇编结果
 
@@ -18,7 +18,7 @@ Objective C的编译器是Clang + LLVM，如果源代码是Swift，那么编译�
 clang -S Demo.m
 ```
 
-这是是x86架构的汇编,对于ARM64我们可以借助`xcrun`,
+这是是x86架构的汇编，对于ARM64我们可以借助`xcrun`，
 
 ```
 xcrun --sdk iphoneos clang -S -arch arm64 Demo.m
@@ -29,23 +29,24 @@ xcrun --sdk iphoneos clang -S -arch arm64 Demo.m
 
 ## 汇编是什么?
 
-汇编语言是一种低级编程语言,不同于Objective C这类高级语言,汇编语言是直接操作硬件(CPU,寄存器,内存等)的。  
-汇编语言仍然不是最低级的语言,CPU不能直接执行,需要通过[汇编器](https://en.wikipedia.org/wiki/Assembly_language#Assembler)转换成机器语言(0101)才能执行。
+汇编语言是一种低级编程语言，不同于Objective C这类高级语言，汇编语言是直接操作硬件(CPU，寄存器，内存等)的。
+  
+汇编语言仍然不是最低级的语言，CPU不能直接执行，需要通过[汇编器](https://en.wikipedia.org/wiki/Assembly_language#Assembler)转换成机器语言(0101)才能执行。
 
-汇编语言由汇编指令组成,每一个汇编指令都是直接操作CPU去进行一系列操作。一个典型的汇编语句：
+汇编语言由汇编指令组成，每一个汇编指令都是直接操作CPU去进行一系列操作。一个典型的汇编语句：
 
 ```
 //把整数0存储到寄存器x0
-mov	x0, #0
+mov	x0， #0
 ```
 
 ## 寄存器
 
-> ARM的全称是[Advanced RISC Machine](https://en.wikipedia.org/wiki/Arm_Holdings),翻译过来是高级精简指令集机器。
+> ARM的全称是[Advanced RISC Machine](https://en.wikipedia.org/wiki/Arm_Holdings)，翻译过来是高级精简指令集机器。
 
-iOS设备CPU架构都是基于ARM的,比如你多少都听过这样的名词：arm64,arm7...它们指的都是CPU指令集。iPhone 5s及以后的iOS设备的CPU都是ARM 64架构的。
+iOS设备CPU架构都是基于ARM的，比如你多少都听过这样的名词：arm64，arm7...它们指的都是CPU指令集。iPhone 5s及以后的iOS设备的CPU都是ARM 64架构的。
 
-ARM64常见的的通用寄存器31个64bit,命名为x0-x30,作用：
+ARM64常见的的通用寄存器31个64bit，命名为x0-x30，作用：
 
 | 寄存器 | 特殊用途 | 作用 |
 | :--------: | :-----: | :---- |
@@ -53,28 +54,28 @@ ARM64常见的的通用寄存器31个64bit,命名为x0-x30,作用：
 | x30 | LR | Link Register |
 | x29 | FP | Frame Pointer |
 | x19...x28 |  | Callee-saved registers |
-| x18 |  | 平台保留寄存器,应用不可以使用。 |
+| x18 |  | 平台保留寄存器，应用不可以使用。 |
 | x17 | IP1 | The second intra-procedure-call temporary register (can be used by call veneers and PLT code); at other times may be used as a temporary register. |
 | x16 | IP0 | The first intra-procedure-call scratch register (can be used by call veneers and PLT code); at other times may be used as a temporary register. |
 | x9...r15 |	 | Temporary registers |
-| x8 | | 间接返回值寄存器,在一些特殊情况下，函数的返回值是通过x8返回的。 |
-| x0...x7 | 	 | 用来参数传递给子程序或者从函数中返回值,也可以用来存储中间值 |
+| x8 | | 间接返回值寄存器，在一些特殊情况下，函数的返回值是通过x8返回的。 |
+| x0...x7 | 	 | 用来参数传递给子程序或者从函数中返回值，也可以用来存储中间值 |
 
 x系列寄存器是64位的，**只用低32bit的时候，称做w0~w30**。
 
-- SP(Stack Pointer), 可以把栈理解为存储数据的容器,而Stack Pointer告诉你这个容器有多高,你可以通过移动Stack Pointer来增加/减少你的容器容量。
-- LR(Link Register，x30), 在子程序调用的时候保存下一个要执行指令的内存地址。
-- FP(Frame Pointer，x29), 保存函数栈的基地址。
+- SP(**Stack Pointer**)， 可以把栈理解为存储数据的容器，而Stack Pointer告诉你这个容器有多高，你可以通过移动Stack Pointer来增加/减少你的容器容量。
+- LR(**Link Register**，x30)， 在子程序调用的时候保存下一个要执行指令的内存地址。
+- FP(**Frame Pointer**，x29)， 保存函数栈的基地址。
 
 除此之外，还有几个特殊的寄存器
 
 - **PC**寄存器保存**下一条**将要执行的指令的地址，正常情况下PC指令加1，顺序执行下一跳指令，PC按条件执行指令（比如依次执行指令1，指令5，指令3），是条件分支（比如if/while）的理论基础。
 - **FLAGS**程序状态寄存器，保存若干flags，**数据处理的指令**会修改这些状态，**条件分支**指令会读取flag，决定跳转。
-- **XZR**,和**WZR** 代表**零寄存器**。
+- **XZR**，和**WZR** 代表**零寄存器**。
 
-浮点数
+**浮点数**
 
-由于浮点数运算的特殊性，arm 64还有31个浮点数寄存器**q0~q31**，长度不同称谓也不同，**b,h,s,d,q**,分别代表byte(8位),half(16位),single(32位),double(64位),quad(128位)。
+由于浮点数运算的特殊性，arm 64还有31个浮点数寄存器**q0~q31**，长度不同称谓也不同，**b，h，s，d，q**，分别代表byte(8位)，half(16位)，single(32位)，double(64位)，quad(128位)。
 
 <img src="https://img-blog.csdn.net/20180419225522819?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="600">
 
@@ -83,50 +84,50 @@ x系列寄存器是64位的，**只用低32bit的时候，称做w0~w30**。
 ## Hello world
 
 
-和任何教程一样, 先看看汇编最简单的汇编代码。新建一个helloworld.c:
+和任何教程一样， 先看看汇编最简单的汇编代码。新建一个helloworld.c:
 
 ```
 #include <stdio.h>
 
 int main()
 {
-    printf("hello, world\n");
+    printf("hello， world\n");
     return 0;
 }
 ```
 
-然后,生成汇编文件：
+然后，生成汇编文件：
 
 ```
 xcrun --sdk iphoneos clang -S -arch arm64 helloworld.c
 ```
 
-> **也可以在XCode中,Product -> Perform Action -> Assemble 来生成汇编文件。**
+> **也可以在XCode中，Product -> Perform Action -> Assemble 来生成汇编文件。**
 
 ```
-	.section	__TEXT,__text,regular,pure_instructions
-	.ios_version_min 11, 2
+	.section	__TEXT，__text，regular，pure_instructions
+	.ios_version_min 11， 2
 	.globl	_main
 	.p2align	2
 _main:                                  ; @main
 ; BB#0:
-	sub	sp, sp, #32             ; =32
-	stp	x29, x30, [sp, #16]     ; 8-byte Folded Spill
-	add	x29, sp, #16            ; =16
-	stur	wzr, [x29, #-4]
-	adrp	x0, l_.str@PAGE
-	add	x0, x0, l_.str@PAGEOFF
+	sub	sp， sp， #32             ; =32
+	stp	x29， x30， [sp， #16]     ; 8-byte Folded Spill
+	add	x29， sp， #16            ; =16
+	stur	wzr， [x29， #-4]
+	adrp	x0， l_.str@PAGE
+	add	x0， x0， l_.str@PAGEOFF
 	bl	_printf
-	mov	w8, #0
-	str	w0, [sp, #8]            ; 4-byte Folded Spill
-	mov	 x0, x8
-	ldp	x29, x30, [sp, #16]     ; 8-byte Folded Reload
-	add	sp, sp, #32             ; =32
+	mov	w8， #0
+	str	w0， [sp， #8]            ; 4-byte Folded Spill
+	mov	 x0， x8
+	ldp	x29， x30， [sp， #16]     ; 8-byte Folded Reload
+	add	sp， sp， #32             ; =32
 	ret
 
-	.section	__TEXT,__cstring,cstring_literals
+	.section	__TEXT，__cstring，cstring_literals
 l_.str:                                 ; @.str
-	.asciz	"hello, world\n"
+	.asciz	"hello， world\n"
 
 
 .subsections_via_symbols
@@ -137,35 +138,35 @@ l_.str:                                 ; @.str
 
 1. 以`.`（点）开头的是汇编器指令
 
-	> **汇编器指令是告诉汇编器如何生成机器码的**,阅读汇编代码的时候通常可以忽略掉。
+	> **汇编器指令是告诉汇编器如何生成机器码的**，阅读汇编代码的时候通常可以忽略掉。
 	  
 	```
-	.section	__TEXT,__text,regular,pure_instructions
+	.section	__TEXT，__text，regular，pure_instructions
 	```  
 
-    表示接下来的内容在生成二进制代码的时候,应该生成到Mach-O文件`__TEXT`（Segment）中的`__text`（Section）
+    表示接下来的内容在生成二进制代码的时候，应该生成到Mach-O文件`__TEXT`（Segment）中的`__text`（Section）
 	
 2. 以`:`（冒号）结尾的是标签(Label)
 
-	> 标签是很有必要的,这样其他函数可以通过字符串匹配,定位到函数的具体位置,其中,以小写字母`l`开头的是本地(local)标签,只能用于函数内部。
+	> 标签是很有必要的，这样其他函数可以通过字符串匹配，定位到函数的具体位置，其中，以小写字母`l`开头的是本地(local)标签，只能用于函数内部。
 	
-去除这些无用的部分后,main函数对应的汇编代码：
+去除这些无用的部分后，main函数对应的汇编代码：
 
 <img src="https://img-blog.csdn.net/20180330140446798?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
->**知识点：**ARM中,栈内存是由高地址向低地址分配的,所以栈顶置针向低移动,就是分配临时存储空间,栈顶置针向高移动,就是释放临时存储空间。
+>ARM中，栈内存是由高地址向低地址分配的，所以栈顶置针向低移动，就是分配临时存储空间，栈顶置针向高移动，就是释放临时存储空间。
 
-这里我们先来看看**@1**和**@5**,这两部分是对称的,分别称为方法头([Function prologue](https://en.wikipedia.org/wiki/Function_prologue))和方法尾([Function prologue
+这里我们先来看看@1和@5，这两部分是对称的，分别称为方法头([Function prologue](https://en.wikipedia.org/wiki/Function_prologue))和方法尾([Function prologue
 ](https://en.wikipedia.org/wiki/Function_prologue#Epilogue))。
 
-- 在方法头部,通过向下移动栈指针sp来在栈上分配内存,把之前状态的sp和lr保存到栈最顶部的16个Byte,接着根据arm64的约定,把sp(x29)设置为栈顶部.
-- 在方法尾,恢复栈上的sp和lr到寄存器,然后向上移动栈指针sp,来释放栈上的内存。
+- 在方法头部，通过向下移动栈指针sp来在栈上分配内存，把之前状态的sp和lr保存到栈最顶部的16个Byte，接着根据arm64的约定，把sp(x29)设置为栈顶部.
+- 在方法尾，恢复栈上的sp和lr到寄存器，然后向上移动栈指针sp，来释放栈上的内存。
 
-@2, 把零寄存器中的值（0）存入到sp-4Byte的位置，为返回值预留栈空间
+@2， 把零寄存器中的值（0）存入到sp-4Byte的位置，为返回值预留栈空间
 
-@3,我们通过“**内存中页的地址+偏移量**”的方式找到了字符串"hello world"在内存中的位置,然后把这个值写入到x0中,作为参数传递给接下来的方法调用，接着调用`printf`
+@3，我们通过“**内存中页的地址+偏移量**”的方式找到了字符串"hello world"在内存中的位置，然后把这个值写入到x0中，作为参数传递给接下来的方法调用，接着调用`printf`
 
-@4, arm寄存器不支持直接把值写入内存,所以首先把返回值0写入到w8中,然后把w0写入到sp+8Byte的内存中,最后把x8(存储了0)写入到x0,作为返回值。
+@4， arm寄存器不支持直接把值写入内存，所以首先把返回值0写入到w8中，然后把w0写入到sp+8Byte的内存中，最后把x8(存储了0)写入到x0，作为返回值。
 
 知识点：
 
@@ -179,7 +180,7 @@ l_.str:                                 ; @.str
 ```
 #include <stdio.h>
   
-int max(int a, int b){
+int max(int a， int b){
     if(a >=b){
         return a;
     }else{
@@ -191,7 +192,7 @@ int main()
 {
     int a = 10;
     int b = 20;
-    int c = max(a,b);
+    int c = max(a，b);
     return 0;
 }
 ```
@@ -207,22 +208,22 @@ main
 <img src="https://img-blog.csdn.net/20180330171024986?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
-这里，我们看到了传入参数的时候，参数是放到x0,x1中的：
+这里，我们看到了传入参数的时候，参数是放到x0，x1中的：
 
 ```
-ldr     w0, [sp, #8]            ; sp+8写入w0
-ldr     w1, [sp, #4]            ; sp+4写入w1
+ldr     w0， [sp， #8]            ; sp+8写入w0
+ldr     w1， [sp， #4]            ; sp+4写入w1
 bl      _max                    ; 调用max
 ```
 
 函数内部，从x0/x1中读取参数，然后把临时变量存储到栈上
 
 ```
-str     w0, [sp, #8]    ;w0(变量a)写入内存sp+8Byte
-str     w1, [sp, #4]    ;w1(变量b)写入sp+4Byte
+str     w0， [sp， #8]    ;w0(变量a)写入内存sp+8Byte
+str     w1， [sp， #4]    ;w1(变量b)写入sp+4Byte
 ``` 
 
-函数的参数传入和返回具有一下规则：
+函数的参数传入和返回具有以下规则：
 
 - **当函数参数个数小于等于8个的时候，x0-x7依次存储前8个参数**
 - **参数个数大于8个的时候，多余的参数会通过栈传递**
@@ -236,15 +237,15 @@ str     w1, [sp, #4]    ;w1(变量b)写入sp+4Byte
 
 ```
 //方法头
-sub	sp, sp, #32             ; =32
-stp	x29, x30, [sp, #16]     ; 8-byte Folded Spill
-add	x29, sp, #16            ; =16
+sub	sp， sp， #32             ; =32
+stp	x29， x30， [sp， #16]     ; 8-byte Folded Spill
+add	x29， sp， #16            ; =16
 
 bl	_printf //子程序调用
 
 //方法尾
-ldp	x29, x30, [sp, #16]     ; 8-byte Folded Reload
-add	sp, sp, #32             ; =32
+ldp	x29， x30， [sp， #16]     ; 8-byte Folded Reload
+add	sp， sp， #32             ; =32
 ```
 
 ### 方法头：
@@ -261,7 +262,7 @@ add	sp, sp, #32             ; =32
 
 调用`bl	_printf`的时候，**bl命令首先会拷贝下一条执行的指令到LR**，这样子程序返回的时候才知道在哪条指令处继续执行。
 
-然后可以看到，子程序`printf`的方法头也和main类似，分配空间，保存main函数的LR,FP，然后重置FP到栈高地址。
+然后可以看到，子程序`printf`的方法头也和main类似，分配空间，保存main函数的LR，FP，然后重置FP到栈高地址。
 
 ### 方法尾
 
@@ -275,7 +276,7 @@ add	sp, sp, #32             ; =32
 
 栈回溯对代码调试和crash定位有很重大的意义，通过之前几个步骤的图解，栈回溯的原理也相对比较清楚了。
 
-1. 通过当前的SP,FP可以得到当前函数的stack frame，通过PC可以得到当前执行的地址。
+1. 通过当前的SP，FP可以得到当前函数的stack frame，通过PC可以得到当前执行的地址。
 2. 在当前栈的FP上方，可以得到Caller(调用者)的FP，和LR。通过偏移，我们还可以获取到Caller的SP。由于LR保存了Caller下一条指令的地址，所以实际上我们也获取到了Caller的PC
 3. 有了Caller的FP，SP和PC，我们就可以获取到Caller的stack frame信息，由此递归就可以不获取到所有的Stack Frame信息。
 
@@ -316,13 +317,13 @@ if (a > 8){
 汇编
 
 ```
-	mov	w8, #10
-	cmp		w8, #8          ; =8
+	mov	w8， #10
+	cmp		w8， #8          ; =8
 	b.le	LBB0_2
 ; BB#1:
-	ldr	w8, [sp, #8]
-	add	w8, w8, #1              ; =1
-	str	w8, [sp, #8]
+	ldr	w8， [sp， #8]
+	add	w8， w8， #1              ; =1
+	str	w8， [sp， #8]
 LBB0_2:
 	#...	
 ```
@@ -366,7 +367,7 @@ void hello_word(int * a){
 int main(){
     int * a;
     hello_word(a);
-    printf("%d",*a);
+    printf("%d"，*a);
     return 0;
 }
 ```
@@ -379,11 +380,11 @@ int main(){
 咋一看什么乱七八糟的东西，这里我们把核心的几行代码抽出来：
 
 ```
-mov	w9, #11			; 11写入寄存器w9
-add	x10, sp, #8     	; x10中存储sp+8Byte的地址，这里x10表示的就是后续的指针变量b
-mov	w11, #10 		   	; 10(变量a)写入w11
-str	w11, [sp, #8]   	; w11(变量a)写入sp+8Byte处的内存，即把变量a存储到栈上，这一行
-str		w9, [x10]   	; 把w9的内容写入x10寄存器所在的地址(sp+8Byte),即 *b = 11;
+mov	w9， #11			; 11写入寄存器w9
+add	x10， sp， #8     	; x10中存储sp+8Byte的地址，这里x10表示的就是后续的指针变量b
+mov	w11， #10 		   	; 10(变量a)写入w11
+str	w11， [sp， #8]   	; w11(变量a)写入sp+8Byte处的内存，即把变量a存储到栈上，这一行
+str		w9， [x10]   	; 把w9的内容写入x10寄存器所在的地址(sp+8Byte)，即 *b = 11;
 ```
 
 - 可以看到，把内存地址(sp+8Byte)写入x10，就实现了指针的声明和内存分配
@@ -401,7 +402,7 @@ struct point{
     float y;
 };
 //结构体作为返回值
-struct point makePoint(float x,float y){
+struct point makePoint(float x，float y){
     struct point p;
     p.x = x;
     p.y = y;
@@ -409,11 +410,11 @@ struct point makePoint(float x,float y){
 }
 //结构体作为参数
 void logPoint(struct point p){
-    printf("(%.2f,%.2f)",p.x,p.y);
+    printf("(%.2f，%.2f)"，p.x，p.y);
 }
 
 int main(){
-    struct point p = makePoint(1.5,2.3);
+    struct point p = makePoint(1.5，2.3);
     logPoint(p);
     return 0;
 }
@@ -445,15 +446,15 @@ C代码
 ```
 #include <stdio.h>
 
-void logArray(int intArray[],size_t length){
+void logArray(int intArray[]，size_t length){
     for(int i = 0;i < length;i++){
-        printf("%d",intArray[i]);
+        printf("%d"，intArray[i]);
     }
 }
 
 int main(){
-    int arr[3] = {1,2,3};
-    logArray(arr,3);
+    int arr[3] = {1，2，3};
+    logArray(arr，3);
     return 0;
 }
 
@@ -474,7 +475,7 @@ int main(){
 3. 初始化数组的变量是存储在代码段的常量区 
 
 	```
-		.section	__TEXT,__const
+		.section	__TEXT，__const
 	l_main.arr:
 		.long	1                       ; 0x1
 		.long	2                       ; 0x2
