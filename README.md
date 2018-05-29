@@ -2,7 +2,7 @@
 
 - [CSDN博客](http://blog.csdn.net/hello_hwc?viewmode=list)
 
-<img src="https://stackexchange.com/users/flair/4889039.png" width="208" height="58" alt="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites" title="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites"></a>
+<a href="https://stackoverflow.com/users/3940672/leo"><img src="https://stackexchange.com/users/flair/4889039.png" width="208" height="58" alt="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites" title="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites"></a>
 
 如果发现博客有内容上的问题，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs/issues)。
 
