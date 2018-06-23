@@ -262,7 +262,7 @@ XCode中，选择Window -> Organizer可以看到我们生成的archier文件
 ----------
 ## 那些你想到和想不到的应用场景
 
-###` __attribute__`
+### ` __attribute__`
 或多或少，你都会在第三方库或者iOS的头文件中，见到过__attribute__。
 比如
 
