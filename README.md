@@ -29,7 +29,7 @@
 
 - [Safari/Chrome调试WebView](https://blog.csdn.net/hello_hwc/article/details/80721246)
 - [启动参数和环境变量](https://blog.csdn.net/hello_hwc/article/details/80865787)
-- [深入理解Crash log](./iOS/aynaylize-crash-log.md)
+- [深入理解Crash log](https://blog.csdn.net/hello_hwc/article/details/80946318)
 
 ## ObjectiveC
 - [深入理解ARC](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ARC.md)
