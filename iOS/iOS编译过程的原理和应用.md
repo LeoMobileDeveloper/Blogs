@@ -22,24 +22,24 @@ iOS开发目前的常用语言是：Objective和Swift。二者都是编译语言
 不管是OC还是Swift，都是采用Clang作为编译器前端，LLVM(Low level vritual machine)作为编译器后端。所以简单的编译过程如图
 
 
-<img src="http://img.blog.csdn.net/20161230152935250?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/compile_1.png">
 
 ### 编译器前端
 
 > 编译器前端的任务是进行：语法分析，语义分析，生成中间代码(intermediate representation )。在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。
 
-<img src="http://img.blog.csdn.net/20161230153325161?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/compile_2.png" width="400">
 
 ### 编译器后端
 > 编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化。iOS的编译过程，后端的处理如下
 
 - **LVVM优化器会进行BitCode的生成，链接期优化等等**。
 
-<img src="http://img.blog.csdn.net/20161230153522237?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/compile_3.png" width="400">
 
 - **LLVM机器码生成器会针对不同的架构，比如arm64等生成不同的机器码**。
 
-<img src="http://img.blog.csdn.net/20161230153750597?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/compile_4.png" width="400">
 
 
 ----------
@@ -93,12 +93,13 @@ clang是实际的编译命令
 
 ## IPA包的内容
 例如，我们通过iTunes Store下载微信，然后获得ipa安装包，然后实际看看其安装包的内容。
-<img src="http://img.blog.csdn.net/20161122233433923" width="300">
+
+<img src="./images/compile_5" width="300">
 
  - 右键ipa，重命名为`.zip`
  - 双击zip文件，解压缩后会得到一个文件夹。所以，ipa包就是一个普通的压缩包。
 
- <img src="http://img.blog.csdn.net/20161122233734162" width="500">
+ <img src="./images/compile_6.png" width="500">
  - 右键图中的`WeChat`，选择显示包内容，然后就能够看到实际的ipa包内容了。
 
 ------
@@ -107,7 +108,7 @@ clang是实际的编译命令
 通过XCode的Link Map File，我们可以窥探二进制文件中布局。
 在XCode -> Build Settings -> 搜索map -> 开启Write Link Map File
 
-<img src="http://img.blog.csdn.net/20161203212636392" width="600">
+<img src="./images/compile_7.png" width="600">
 
 开启后，在编译，我们可以在对应的Debug/Release目录下看到对应的link map的text文件。
 默认的目录在
@@ -247,7 +248,7 @@ Section部分将二进制文件进行了一级划分。而，Symbols对Section�
 
 XCode中，选择Window -> Organizer可以看到我们生成的archier文件
 
-<img src="http://img.blog.csdn.net/20161203182006555" width="700">
+<img src="./images/compile_8.png" width="700">
 
 然后，
 
@@ -356,7 +357,7 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 同样，我们同样也可以定义其他预处理变量,在XCode-选中Target-build settings中，搜索proprecess。然后点击图中蓝色的加号，可以分别为debug和release两种模式设置预处理宏。
 比如我们加上：`TestServer`，表示在这个宏中的代码运行在测试服务器
 
-<img src="http://img.blog.csdn.net/20161205221447674" width="600">
+<img src="./images/compile_9.png" width="600">
 
 然后，配合多个Target（右键Target，选择Duplicate），单独一个Target负责测试服务器。这样我们就不用每次切换测试服务器都要修改代码了。
 
@@ -370,7 +371,7 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 ### 插入脚本
 通常，如果你使用CocoaPod来管理三方库，那么你的Build Phase是这样子的：
 
-<img src="http://img.blog.csdn.net/20161205223019180" width="600">
+<img src="./images/compile_10.png" width="600">
 
 其中：[CP]开头的，就是CocoaPod插入的脚本。
 
@@ -380,7 +381,7 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 
 而这些配置信息都存储在这个文件(.xcodeprog)里
 
-<img src="http://img.blog.csdn.net/20161205224255436" width="250">
+<img src="./images/compile_11.png" width="250">
 
 到这里，CocoaPod的原理也就大致搞清楚了，通过修改xcodeproject，然后配置编译期脚本，来保证三方库能够正确的编译连接。
 
@@ -398,15 +399,13 @@ buildNumber=$(($buildNumber + 1))
 - Xcode - 选中Target - 选中build phase 
 - 选择添加Run Script Phase
 
-<img src="http://img.blog.csdn.net/20161210104221850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
+<img src="./images/compile_12.png" width="600">
 
 - 然后把这段脚本拷贝进去，并且勾选Run Script Only When installing，保证只有我们在安装到设备上的时候，才会执行这段脚本。重命名脚本的名字为Auto Increase build number
 
-<img src="http://img.blog.csdn.net/20161210104221850?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
-
 - 然后，拖动这个脚本的到Link Binary With Libraries下面
 
-<img src="http://img.blog.csdn.net/20161210104750399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
+<img src="./images/compile_14.png" width="600">
 
 ### 脚本编译打包
 
@@ -436,7 +435,7 @@ $ defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
 
 然后，重启XCode，然后编译，你会在这里看到编译时间。
 
-<img src="http://img.blog.csdn.net/20161206223153632?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/compile_15.png">
 
 
 代码层面的优化
@@ -458,9 +457,10 @@ XCode的pch文件是预编译文件，这里的内容在执行XCode build之前�
 在XCode -> Build Settings ->  Build Active Architecture Only 改为YES。这样做，可以只编译当前的版本，比如arm7/arm64等等，记得只开启Debug模式。这个选项在高版本的XCode中自动开启了。
 
 #### Debug模式下，关闭编译器优化
+
 编译器优化
 
-<img src="http://img.blog.csdn.net/20161206231413542?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/compile_16.png">
 
 ------
 
