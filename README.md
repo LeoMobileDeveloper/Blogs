@@ -24,6 +24,7 @@
 - [60fps的网易云音乐首页](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/60fps%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E9%A6%96%E9%A1%B5.md)
 - [深入理解App的启动过程](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/What%20happened%20at%20startup%20time.md)
 - [Fishhook背后的黑魔法](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Behind%20fishhook.md)
+- [实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
 
 ### iOS代码调试
 

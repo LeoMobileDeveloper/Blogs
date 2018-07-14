@@ -94,7 +94,7 @@ clang是实际的编译命令
 ## IPA包的内容
 例如，我们通过iTunes Store下载微信，然后获得ipa安装包，然后实际看看其安装包的内容。
 
-<img src="./images/compile_5" width="300">
+<img src="./images/compile_5.png" width="300">
 
  - 右键ipa，重命名为`.zip`
  - 双击zip文件，解压缩后会得到一个文件夹。所以，ipa包就是一个普通的压缩包。
