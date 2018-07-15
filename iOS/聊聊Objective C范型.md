@@ -71,7 +71,7 @@ NSMutableArray<NSString *> * array = [[NSMutableArray alloc] init];
 
 往这个数组里加入非字符串类型的对象时，编译器会给出警告：
 
-<img src="http://img.blog.csdn.net/20180104154945878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/generic_1.png">
 
 同样的，NSDictionary和NSSet也支持范型：
 
@@ -142,7 +142,7 @@ Box<NSString *> * box = [[Box<NSString *> alloc] init];
 
 同时还可以看到XCode自动推断出了参数的具体类型
 
-<img src="http://img.blog.csdn.net/20180106212311709?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/generic_2.png">
 
 关于Objective C范型的几点说明：
 
@@ -226,7 +226,7 @@ viewBox = labelBox;
 
 这时候编译器会给出警告
 
-<img src="http://img.blog.csdn.net/20180106232715485?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/generic_3.png">
 
 > 这看似合理，又不合理。
 
@@ -344,7 +344,7 @@ NSArray * strings = [NSArrayMapper<NSNumber *,NSString *> mapArray:numbers
 
 并且，开发的时候，XCode会为我们自动补全：
 
-<img src="http://img.blog.csdn.net/20180107144132037?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/generic_4.png">
 
 ## 总结
 
