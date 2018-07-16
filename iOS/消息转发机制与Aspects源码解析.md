@@ -78,7 +78,7 @@ NSInteger result = objc_msgSend(self, sel_registerName("myTestFunction:"),10);
 
 那么，在运行时如何找到这个方法的执行体呢？ 这里省略一些细节，对细节感兴趣的同学可以看我上文写的那篇文章。**一个实例方法**的流程如下：
 
-<img src="http://img.blog.csdn.net/20170510181629182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
+<img src="./images/message_aspect_1.png" width="600">
 
 - 对象实例收到消息（SEL+参数）
 - 根据存储在对象实例中的ISA到类对象，类对象依次查找Class Cache（方法表缓存）和dispatch table找到对应的Method，如果找到Method，执行对应Method的IMP（方法体），并且返回结果
@@ -91,11 +91,11 @@ NSInteger result = objc_msgSend(self, sel_registerName("myTestFunction:"),10);
 
 通过上文我们知道，一个方法的调用实际上就是SEL（方法名）通过Runtime找到IMP（方法执行体）
 
-<img src="http://img.blog.csdn.net/20170510183132621?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/message_aspect_2.png" width="400">
 
 既然是通过Runtime动态找到的，那么我们就可以利用Runtime的API，讲SEL\_1来指向IMP\_2，接着我们再在在IMP\_2的方法体中执行IMP\_1，就实现了动态插入代码。
 
-<img src="http://img.blog.csdn.net/20170510183448654?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/message_aspect_3.png" width="400">
 
 ----
 ## 消息转发机制
@@ -178,7 +178,7 @@ void dynamicMethodIMP(id self, SEL _cmd){/*...implementation...*/}
 
 在没有hook之前，ViewController的SEL与IMP关系如下
 
-<img src="http://img.blog.csdn.net/20170517220434759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/message_aspect_4.png">
 
 调用以下aspect来hook `viewWillAppear:`后：
 
@@ -190,7 +190,7 @@ void dynamicMethodIMP(id self, SEL _cmd){/*...implementation...*/}
                              } error:&error];
 ```
 
-<img src="http://img.blog.csdn.net/20170517220556307?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/message_aspect_5.png">
 
 - 最初的`viewWillAppear:` 指向了`_objc_msgForward`
 - 增加了`aspects_viewWillAppear:`,指向最初的`viewWillAppear:`的IMP
@@ -400,8 +400,3 @@ static NSMethodSignature *aspect_blockMethodSignature(id block, NSError **error)
 ### 效率
 
 > 消息转发机制相对于正常的方法调用来说是比较昂贵的，所以一定不要用消息转发机制来处理那些一秒钟成百上千次的调用。
-
-
-	
-
-
