@@ -19,7 +19,7 @@
 Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。
 mach-o可以大致的分为三部分：
 
-<img src="http://img.blog.csdn.net/20171020172454552?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/launch_1.png" width="300">
 
 - Header 头部，包含可以执行的CPU架构，比如x86,arm64
 - Load commands 加载命令，包含文件的组织架构和在虚拟内存中的布局方式
@@ -28,7 +28,7 @@ mach-o可以大致的分为三部分：
 
 我们用**MachOView**打开Demo工程的可以执行文件，来验证下mach-o的文件布局：
 
-<img src="http://img.blog.csdn.net/20171021143538063?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/launch_2.png" width="500">
 
 图中分析的mach-o文件来源于[PullToRefreshKit](https://github.com/LeoMobileDeveloper/PullToRefreshKit)，这是一个纯Swift的编写的工程。
 
@@ -75,7 +75,7 @@ mach-o可以大致的分为三部分：
 
 使用dyld2启动应用的过程如图：
 
-<img src="http://img.blog.csdn.net/20171020184935082?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/launch_3.png">
 
 大致的过程如下：
 
@@ -122,7 +122,7 @@ mach-o中采用了PIC技术，全称是Position Independ code。当你的程序�
 - Rebase 修正内部(指向当前mach-o文件)的指针指向
 - Bind 修正外部指针指向
 
-<img src="http://img.blog.csdn.net/20171023100523145?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width=600>
+<img src="./images/launch_4.png" width=600>
 
 之所以需要Rebase，是因为刚刚提到的ASLR使得地址随机化，导致起始地址不固定，另外由于Code Sign，导致不能直接修改Image。Rebase的时候只需要增加对应的偏移量即可。待Rebase的数据都存放在`__LINKEDIT`中。  
 可以通过MachOView查看：Dynamic Loader Info -> Rebase Info
@@ -177,7 +177,7 @@ Objective C是动态语言，所以在执行main函数之前，需要把类的�
 
 上文的讲解是dyld2的加载方式。而最新的是dyld3加载方式略有不同：
 
-<img src="http://img.blog.csdn.net/20171022203521690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
+<img src="./images/launch_5.png" width="600">
 
 dyld2是纯粹的in-process，也就是在程序进程内执行的，也就意味着只有当应用程序被启动的时候，dyld2才能开始执行任务。
 
@@ -200,7 +200,7 @@ dyld3则是部分out-of-process，部分in-process。图中，虚线之上的部
 
 在Xcode中，可以通过设置环境变量来查看App的启动时间，`DYLD_PRINT_STATISTICS`和`DYLD_PRINT_STATISTICS_DETAILS`。
 
-<img src="http://img.blog.csdn.net/20171022202530192?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="600">
+<img src="./images/launch_6.png" width="600">
 
 ```
 Total pre-main time:  43.00 milliseconds (100.0%)
@@ -239,7 +239,7 @@ Total pre-main time:  43.00 milliseconds (100.0%)
 
 比如网易新闻：
 
-<img src="http://img.blog.csdn.net/20171022211956339?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="200">
+<img src="./images/launch_7.png" width="200">
 
 在启动的时候只需要初始化**首页**的**头条**页面即可。像“要闻”，“我的”等页面，则延迟加载，即启动的时候只是一个UIViewController作为占位符给TabController，等到用户点击了再去进行真正的数据和视图的初始化工作。
 
@@ -301,7 +301,7 @@ Time Profiler在分析时间占用上非常强大。实用的时候注意三点
 
 一个典型的分析界面如下：
 
-<img src="http://img.blog.csdn.net/20171022213751655?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/launch_8.png">
 
 几点要注意：
 
@@ -311,7 +311,7 @@ Time Profiler在分析时间占用上非常强大。实用的时候注意三点
 
 在某一行上双击，我们可以进入到代码预览界面，去看看实际每一行占用了多少时间：
 
-<img src="http://img.blog.csdn.net/20171022214031272?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/launch_9.png">
 
 #### 小结
 
