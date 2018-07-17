@@ -96,7 +96,7 @@ provider.request(.zen) { result in
 
 为了更好的讲解Moya的处理流程，我画了一张图（用Sketch画的）：
 
-<img src="http://img.blog.csdn.net/20170809135909929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/moya_1.png">
 
 第一眼看到这张图的时候，你肯定是困惑的，我们来一点点讲解图中的过程。通过上文的讲解我们知道，[Provider](https://github.com/Moya/Moya/blob/master/Sources/Moya/MoyaProvider.swift)这个类是网络请求的枢纽，它接受一个TargetType(请求)，并且通过闭包的方式给上层回调。
 
@@ -125,7 +125,7 @@ public init(endpointClosure: @escaping EndpointClosure = MoyaProvider.defaultEnd
 ----
 ### Request
 
-<img src="https://camo.githubusercontent.com/11d7f03370059f782a5c2170360165656cf6ec45/68747470733a2f2f7261772e6769746875622e636f6d2f4d6f79612f4d6f79612f6d61737465722f7765622f706970656c696e652e706e67">
+<img src="./images/moya_2.png">
 
 在Moya中，请求是按照如图的方式进行转换的。其中,TargetType到Endpoint的转换是通过闭包`endpointClosure`来完成的。闭包的输入是TargetType，输出是`EndPoint`
 
@@ -238,7 +238,7 @@ Moya采用了这种简单粗暴，但是效果却很好的stub方式。
 
 > Plugin提供了一种插件的机制让你可以在网络请求的关键节点插入代码，比如显示小菊花扽等。
 
-<img src="http://img.blog.csdn.net/20170809135909929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/moya_1.png">
 
 这里我们再看一下这张图，可以清楚的看到四个plugin方法作用的时机。
 
@@ -468,7 +468,7 @@ stubClosure: = MoyaProvider.neverStub,
 
 插件是我认为Moya这个框架最吸引我的地方。
 
-<img src="http://img.blog.csdn.net/20170809135909929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/moya_1.png">
 
 > 通过在各个节点暴露出插件的接口，让Moya的日志，授权，小菊花等功能无需耦合到核心代码里，同时也给外部足够的灵活性，能够插入任何想要的代码。
 
@@ -579,7 +579,7 @@ extension ObservableType where E == Response {
 ```
 通过这个方法，可以进行信号中包含的信息转换：
 
-<img src="http://img.blog.csdn.net/20170811103606241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/moya_3.png">
 
 于是，通过RxSwift和ObjectMapper，就可以这么处理：
 
