@@ -1,5 +1,5 @@
 
-<img src="http://img.blog.csdn.net/20170601155156189?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/alamofire_1.png">
 
 ## 前言
 
@@ -14,7 +14,7 @@
 
 iOS的网络开发（URL Loading System）的类层次如下：
 
-<img src="http://img.blog.csdn.net/20170531104751884?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/alamofire_2.png" width="500">
 
 从图中可以看出，整个框架包括URL Loading相关的核心类和五种辅助类。其中，五种辅助类划分如下
 
@@ -34,7 +34,7 @@ Alamofire就是建立在`NSURLSession`上的封装。
 
 那么，用NSURLSession来进行HTTP/HTTPS请求的时候，实际的过程如何呢？
 
-<img src="http://img.blog.csdn.net/20170527171006760?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/alamofire_3.png">
 
 - 建立`NSURLSessionTask`，并且`resume`.
 - 检查cache策略，如果有需要从本地cache中直接返回数据
@@ -169,7 +169,7 @@ open class Request {
 
 Alamofie的整体功能图如下：
 
-<img src="http://img.blog.csdn.net/20170531211200899?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/alamofire_4.png">
 
 其中
 
@@ -300,7 +300,7 @@ dataResponse.add(self.delegate.metrics)
 
 Alaofire的文件划分如下：
 
-<img src="http://img.blog.csdn.net/20170602161426285?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/alamofire_5.png" width="300">
 
 我们来分析Alamofire的各个模块负责的功能：
 
@@ -495,7 +495,7 @@ NRULSessionTask是由继承来实现的，继承关系如下
 
 Alamofire的很多设计都是以协议为中心的，
 
-<img src="http://img.blog.csdn.net/20170603152427871?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/alamofire_6.png" width="300">
 
 以ParameterEncoding协议：
 
@@ -560,7 +560,7 @@ Alamofire.request(API.login, method: .post, encoding: CusomEncoding())
 
 在Alamofire中，最主要的就是这两对代理关系：
 
-<img src="http://img.blog.csdn.net/20170603183637523?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/alamofire_7.png" width="400">
 
 由于Delegate的存在，
 
