@@ -42,7 +42,7 @@ int rebind_symbols(struct rebinding rebindings[], size_t rebindings_nel);
 
 新建一个iOS单页面工程，添加一个C函数,然后，编译生成.app文件，在.app文件中获取可执行文件，用MachOView打开，选中`__la_symbol_ptr`，接下来我们就看看如何找到`objc_msgSend`的符号。
 
-<img src="http://img.blog.csdn.net/20171103121106950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_1.png">
 
 
 ### 遍历存储Symbols的两个Section
@@ -71,7 +71,7 @@ struct section { /* for 32-bit architectures */
 
 通过上一步得到的index+reversed1为下标，我们访问**Indirect Symbol Table**，找到`objc_msgSend`的信息：
 
-<img src="http://img.blog.csdn.net/20171103121529562?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_2.png">
 
 这里可以看到，图中选中的一行中，Data是00000063，换算成16进制就是99。
 
@@ -81,7 +81,7 @@ struct section { /* for 32-bit architectures */
 
 通过Indirect Symbol Table，我们知道`objc_msgSend`在Symbol Table的下标是99。
 
-<img src="http://img.blog.csdn.net/20171103122126147?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_3.png">
 
 `nlist`的数据结构如下：
 
@@ -116,13 +116,13 @@ struct nlist_64 {
 
 根据上一步获取到偏移量+String Table的基础偏移量，我们就能知道这个符号对应的字符串名称了。
 
-<img src="http://img.blog.csdn.net/20171103123033892?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_4.png">
 
 ### 小结
 
 上述的四个步骤，总结一下如图（图片来自官方）：
 
-<img src="http://img.blog.csdn.net/20171103123324323?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_5.png">
 
 到这里，我们只要遍历所有的`__nl_symbol_ptr`和`__la_symbol_ptr`中的指针，就能够获得到其对应的字符串，也就是说，这是一个遍历匹配的过程。
 
@@ -320,7 +320,7 @@ int main(int argc, char * argv[]) {
 ```
 然后，编译，用MachOView打开可执行文件，发现不管是lazy还是non lazy的symbols里，都没有这个`LeoTestCFunction`符号。
 
-<img src="http://img.blog.csdn.net/20171103121106950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/fishhook_6.png">
 
 原因也很简单
 
