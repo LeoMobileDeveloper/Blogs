@@ -66,13 +66,13 @@ open class SwiftIt{
 
 **Boom～～～**，编译不通过。
 
-<img src="http://img.blog.csdn.net/20170302155103752?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/framework_1.png">
 
 > 原因：OCSource.h默认编译的时候是Project权限. 为了在umbrella header中使用，要把这个文件的权限改成Public
 
 按照图中的方式拖过去即可。
 
-<img src="http://img.blog.csdn.net/20170302155344066?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/framework_2.png">
 
 
 嗯，现在build，可以看到build成功了。
@@ -203,7 +203,8 @@ module OCSource [system] {
 }
 ```
 
-<img src="http://img.blog.csdn.net/20170302162618822?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/framework_3.png">
+
 
 这里的#(SRCROOT)是XCode的宏，会自动替换成项目所在的根目录，这里输入的路径是module.modulemap文件所在的路径。
 
@@ -211,7 +212,8 @@ module OCSource [system] {
 
 把OCSource.h的权限改回默认的project。
 
-<img src="http://img.blog.csdn.net/20170302163842759?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/framework_4.png">
+
 
 再编译，发现OC的类被隐藏了。
 

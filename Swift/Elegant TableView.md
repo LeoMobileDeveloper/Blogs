@@ -79,7 +79,7 @@ Delegate/DataSource中，有许多重复的代码。比如：
 
 这种情况，在设置界面尤其明显，比如这是网易云音乐的设置界面：
 
-<img src="http://img.blog.csdn.net/20170618180602025?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/mdtable_1.png" width="300">
 
 思考一下，如果让你来写，你会怎么写？
 
@@ -296,7 +296,7 @@ MDTable是一个模型驱动的框架。使用MDTable，你的Controller会变�
 
 比如一个这样的界面
 
-<img src="http://img.blog.csdn.net/20170619112950406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/mdtable_2.png" width="300">
 
 只需要六行代码：
 
