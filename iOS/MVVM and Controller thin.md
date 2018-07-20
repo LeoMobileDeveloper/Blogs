@@ -39,7 +39,7 @@ MVC是一个做iOS开发都知道的设计模式，也是Apple官方推荐的设
 ### 组件
 MVC设计模式按照职责将应用中的对象分成了三部分：Model，View，Controller。MVC除了将应用划分成了三个模块，还定义了模块之间的**通信方式**。
 
-<img src="http://img.blog.csdn.net/20170508223010299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/mvvm_1.png" width="500">
 
 #### **Model**
 
@@ -73,7 +73,7 @@ Model层涉及到了应用是什么，**这一层非常独立**，但是往往�
 
 MVC三个组件之间的通信方式如图
 
-<img src="http://img.blog.csdn.net/20170509144413349?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_2.png">
 
 Controller作为枢纽，它指向view和Model的线都是绿色的，意味着Controller可以**直接访问**（以引用的方式持有）Model和View。
 
@@ -116,7 +116,7 @@ MVVM有两个规则
 - **View持有ViewModel的引用，反之没有**
 - **ViewModel持有Model的引用，反之没有**
 
-<img src="http://img.blog.csdn.net/20170517103440413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_3.png">
 
 图中，我们仍然以**实线表示持有，虚线表示盲通**信。
 
@@ -124,13 +124,13 @@ MVVM有两个规则
 
 在实践中，我们发现`UIViewController`和`View`往往是绑定在一起的，比如`UIViewController`的一个属性就是`view`。在MVVM中，Controller可以当作一个重量级的View（负责界面切换和处理各类系统事件）。
 
-<img src="http://img.blog.csdn.net/20170517140506576?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_4.png">
 
 不难看出，MVVM是对MVC的扩展，所以MVVM可以完美的兼容MVC。
 
 对于一个界面来说，有时候View和ViewModel往往不止一个，MVVM也可以组合使用：
 
-<img src="http://img.blog.csdn.net/20170517141356307?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_5.png">
 
 
 ----
@@ -156,11 +156,11 @@ MVC是一个优秀的设计模式，本文讲解MVVM也不是说想要用MVVM来
 
 两行列表
 
-<img src="http://img.blog.csdn.net/20170607153030816?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_6.png">
 
 左边图，右边detail
 
-<img src="http://img.blog.csdn.net/20170607153040894?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_7.png">
 
 这里，我们只关心左侧的图，在常规的Layout情况下Cell中的代码：
 
@@ -439,7 +439,7 @@ func handleLogin(sender:UIButton){
 
 于是，这里我们把网络层抽离：
 
-<img src="http://img.blog.csdn.net/20170611184225774?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/mvvm_8.png" width="400">
 
 首先，定义一个协议，表示能够解析成一个网络请求的类型：
 
@@ -588,7 +588,7 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 ```
 当你看这样的代码的时候，日志代码也在看着你：
 
-<img src="http://img.blog.csdn.net/20170607181953905?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/mvvm_9.png" width="400">
 
 是不是很痛苦呢？
 
@@ -726,7 +726,7 @@ ViewControllerB * vcb = [[ViewControllerB alloc] init];
 
 当在一个类中`import`另一个类的时候，这两个类就形成了强耦合。
 
-<img src="http://img.blog.csdn.net/20170517142428604?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/mvvm_10.png" width="400">
 
 另外，很多App都有一个用户中心的界面，这个界面有一些特点就是会跳转到很多界面。于是，日积月累，这个类中，你会发现代码编程了这个样子：
 
@@ -744,7 +744,7 @@ if indexPath.secion == 0{
 
 一个典型的解Controller与Controller解耦方案就是加一个中间层：路由，并且建立Module（模块）来管理一组Controller。
 
-<img src="http://img.blog.csdn.net/20170606185009101?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/mvvm_11.png">
 
 类似这种的路由架构，在App启动的时候，通过注入的方式把各个Module
 
