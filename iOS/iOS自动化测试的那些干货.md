@@ -4,7 +4,7 @@
 
 大多数的iOS App(没有持续集成)迭代流程是这样的
 
-<img src="http://img.blog.csdn.net/20170221102031324?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/test_1.png" width="300">
 
 也就是说，测试是发布之前的最后一道关卡。如果bug不能在测试中发现，那么bug
 就会抵达用户，所以测试的<font color="red">**完整性**</font>和<font color="red">可靠性</font>十分重要。
@@ -18,7 +18,7 @@
  
 然后，老板就要过来找你了
 
-<img src="http://img.blog.csdn.net/20170309120143195?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="200">
+<img src="./images/test_2.jpeg" width="200">
 
 **本文所讲解的均是基于XCode 8.2.1，有些概念可能不适用于低版本的XCode**
 
@@ -63,7 +63,7 @@
 
 从业务的层次上来说，测试金字塔如图：
 
-<img src="http://img.blog.csdn.net/20170305180528100?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="350">
+<img src="./images/test_3.png" width="350">
 
 而iOS测试通常只有以下两个层次：
 
@@ -150,14 +150,14 @@ UI测试是模拟用户操作，进而从业务处层面测试。关于XCTest的
 UI测试还有一个核心功能是UI Recording。选中一个UI测试用例，然后点击图中的小红点既可以开始UI Recoding。你会发现：
 > 随着点击模拟器，自动合成了测试代码。（通常自动合成代码后，还需要手动的去调整）
 
-<img src="http://img.blog.csdn.net/20170221171911419?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/test_4.png" width="500">
 
 在写UI测试用例的时候要注意：测试行为而不是测试代码。比如，我们测试这样一个case
 >进入Todo首页，点击add，进入添加页面，输入文字，点击save。
 
 测试效果如下：
 
-<img src="http://img.blog.csdn.net/20170309115140207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="200">
+<img src="./images/test_5.gif" width="200">
 
 对应测试代码：
 
@@ -208,7 +208,7 @@ UI测试还有一个核心功能是UI Recording。选中一个UI测试用例，�
 ### 查看测试结果
 使用基于XCTest的框架，可以在XCode的report navigator中查看测试结果。
 
-<img src="http://img.blog.csdn.net/20170226112602362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" widht="600">
+<img src="./images/test_6.png" widht="600">
 
 其中：
 
@@ -465,7 +465,7 @@ Controller与Controller解耦合
 
 在Storyboard上设置：
 
-<img src="http://img.blog.csdn.net/20170226113858569?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="200">
+<img src="./images/test_7.png" width="200">
 
 - 上面的通过Runtime Attributes设置（KVC）
 - 下面的通过GUI来设置
@@ -560,7 +560,7 @@ path/to/xctool.sh \
 
 一个常见的测试代码组织如下：
 
-<img src="http://img.blog.csdn.net/20170227111054666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/test_8.png" width="400">
 
 
 ----
@@ -573,7 +573,7 @@ appium采用了Client Server的模式。对于App来说就是一个Server，基�
 
 原因也比较简单：Apple在10.0之后，移除了UIAutomation的支持，只支持XCUITest。
 
-<img src="http://img.blog.csdn.net/20170309114024262?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/test_9.png" width="500">
 
 对比KIF，appium有它的优点：
 
