@@ -111,7 +111,7 @@ Objective C++
 --
 在AsyncDisplay中，可以看到很多.mm后缀的文件，例如
 
-<img src="http://img.blog.csdn.net/20160510165059717" width="300">
+<img src="./images/asyncdisplaykit_1.png" width="300">
 
 >Objective C++和Objective C类似，它的文件组成由一个.h和一个.mm组成，你可以使用C＋＋的语法，例如命名空间，由于编译过后会被链接到OC runtime，所以，也可以使用OC的类。
 
@@ -129,7 +129,7 @@ clang
 
 所以，如果读到这里，还是对iOS的编译环节没有一个清楚的认识，建议看看clang和LLVM的wiki。另外，研究下XCode中build settings下所有的内容，还有，我之前的[这篇博客](http://blog.csdn.net/hello_hwc/article/details/46425503)也介绍了Clang的警告相关
 
-<img src="http://img.blog.csdn.net/20160510222553006" width="600">
+<img src="./images/asyncdisplaykit_2.png" width="600">
 
 举例看看这个库中是如何使用的
 
@@ -155,7 +155,7 @@ ASDisplayNode
 --
 这里不得不提到了，UIView和CALayer的关系
 
-<img src="http://img.blog.csdn.net/20160425153924639" width="500">
+<img src="./images/asyncdisplaykit_3.png" width="500">
 
 
 * 所有视图可见的部分，本质上都是CALayer显示的
@@ -164,11 +164,11 @@ ASDisplayNode
 
 AsnycDisplayKit仿照这种代理关系，对UIView进行了进一步的封装－ASDisplayNode。其中，Node是可以<font color="red">异步绘制的，也可以是layerBased</font>
 
-<img src="http://img.blog.csdn.net/20160426165814636" width="500">
+<img src="./images/asyncdisplaykit_4.png" width="500">
 
 ASDisplayNode的继承方式如下
 
-<img src="http://img.blog.csdn.net/20160429115227807" width="400">
+<img src="./images/asyncdisplaykit_5.png" width="400">
 
 可以看到，类似于UIView与UILabel的关系，`ASDisplayNode`是AsyncDisplayKit中可视部分node的基类。
 
@@ -286,7 +286,7 @@ SubTree预合成
 * Display Range,被认为是将要展示的区域，这个区域会进行布局计算，图片解码，后台渲染等预加载
 * Fetch Data Range，进行预先数据获取的区域（网络或者磁盘）
 
-<img src="http://img.blog.csdn.net/20160510224529562" width="500">
+<img src="./images/asyncdisplaykit_6.png" width="500">
 
 关于预加载，可以参考[ASTableView](https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASTableView.h)的代码，
 Range的定义
@@ -354,7 +354,7 @@ _dataController的数据源是self(ASTableview),也就是它依赖ASTableivew为
 
 _rangeController的dataSrouce和delegate都是self，也就是它是直接和ASTableview打交道的，而代理和数据源如下图,通过名字就可以看出来，rangeController用来实际的管理区域的变化。并且回调给ASTableview
 
-<img src="http://img.blog.csdn.net/20160512145259694" width="500">
+<img src="./images/asyncdisplaykit_7.png" width="500">
 
 <font size=3>这么设计的最大的优点是什么？ － 解耦,让不同的类分别处理某一块逻辑，这样代码的逻辑清楚，方便测试，方便后期维护</font>
 
@@ -431,7 +431,7 @@ Runloop的使用
 <font color="orange">
 
 1. 监听Main Runloop的状态，在主线程空闲的时候或者合适的时候去执行一些任务。
-2. 把任务拆分成一个个小任务，依次提交到Runloop里执行。而不是，一个大任务去执行。大任务的执行会导致占用线程时间过多，导致之前所说的掉帧。
+2. 把任务拆分成一个个小任务，依次提交到Runloop里执行。而不是一个大任务去执行。大任务的执行会导致占用线程时间过多，导致之前所说的掉帧。
 3. 创建一个后台等待执行任务的线程，并且开启Runloop来等待任务。
 4. 根据Runloop的Mode来提交不同的任务，然后根据状态在Mode之前切换
 
