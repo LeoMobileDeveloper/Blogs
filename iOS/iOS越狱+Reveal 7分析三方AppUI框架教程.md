@@ -8,13 +8,13 @@
 
 淘宝首页：
 
-<img src="http://img.blog.csdn.net/20170405220405524?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/reveal_1.png" width="500">
 
 - 可以看到，淘宝首页其实就是一个巨大的CollectionView
 
 京东首页：
 
-<img src="http://img.blog.csdn.net/20170405220643745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/reveal_2.png" width="500">
 
 - 可以看到，京东首页其实就是一个巨大的TableView
 
@@ -37,7 +37,7 @@
 - 修改Bundle identifier, 连接iphone运行项目。发现多安装了一个App名称为“yalu102”
 - 打开yalu102,点击Go开始越狱。越狱成功后，桌面程序会重启，然后会发现多个一个Cydia的App，越狱成功。
 
-<img src="http://img.blog.csdn.net/20170405221211627?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250">
+<img src="./images/reveal_3.png" width="250">
 
 ----
 ## 配置本文需要的环境
@@ -46,7 +46,7 @@
 
 - 在Cydia中搜索OpenSSH，点击安装。
 
-<img src="http://img.blog.csdn.net/20170405214632905?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250">
+<img src="./images/reveal_4.png" width="250">
 
 ### **通过USB进行SSH**
 
@@ -140,11 +140,11 @@ cyberduck可以让我们通过拖拽的方式把mac上的文件拷贝到ios设�
 
 - 启动cyberduck，点击新建连接,选择SFTP（SSH），然后按照图中的方式填写。注意默认密码和上文一样，都是**alpine**
 
-<img src="http://img.blog.csdn.net/20170405213222537?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/reveal_5.png" width="400">
 
 - 点击连接,看到下图表示SSH成功。点击图中的部分，可以回到根目录。
 
-<img src="http://img.blog.csdn.net/20170405213425757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/reveal_6.png" width="400">
 
 
 ----
@@ -152,7 +152,7 @@ cyberduck可以让我们通过拖拽的方式把mac上的文件拷贝到ios设�
 
 - 从官网下载[Reveal](https://revealapp.com/)，本文下载当前最新的版本Reveal 7（试用版需要先填写email信息，然后获得试用key）.下载完成后，将reveal拖拽到应用目录，然后执行Reveal。这时候如图：
 
-<img src="http://img.blog.csdn.net/20170405213756469?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/reveal_7.png" width="500">
 
 ----
 ## 最后的步骤
@@ -163,29 +163,30 @@ cyberduck可以让我们通过拖拽的方式把mac上的文件拷贝到ios设�
 
 > 如果安装失败，在软件源中点击编辑->删除BigBoss。接着点击Tabbar上的Cydia -> 更多软件源重新安装BigBoss(比较慢).再试着安装Reveal2Loader
 
-<img src="http://img.blog.csdn.net/20170405214709342?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250">
+<img src="./images/reveal_8.png" width="250">
 
 - 安装Reveal2Loader成功后，在设置中会多一个Reveal选项，进入然后选择Enable Applications，这里是你想要用Reveal分析的App。比如我选择打开手机淘宝。
 
-<img src="http://img.blog.csdn.net/20170405214805937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250"><img src="http://img.blog.csdn.net/20170405214819281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250">
+<img src="./images/reveal_9.png" width="250"><img src="./images/reveal_10.png" width="250">
 
 然后，运行淘宝，你会发现Reveal中有提示了，如果没有提示，尝试关闭淘宝，重新启动。
 
-<img src="http://img.blog.csdn.net/20170405215000971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/reveal_11.png" width="400">
 
 到这里，如果提示链接的Framework版本过低，那么我们需要把最新的Framework拷贝到手机上。
 
 - 点击Reveal的菜单栏中的Help，然后按照图中方式打开对应的framework路径。
 
-<img src="http://img.blog.csdn.net/20170405215427784?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/reveal_12.png" width="400">
 
 - 用上文的cyberduck SSH到iOS 设备上，然后进入`/Library/Frameworks`，删除当前目录下的RevealServer.framework（注意别删错了）
 
-<img src="http://img.blog.csdn.net/20170405215739520?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/reveal_13.png" width="300">
 
 接着，按照图中的方式，把RevealServer.framework拖拽到`/Library/Frameworks`下。
 
-<img src="http://img.blog.csdn.net/20170405215349299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/reveal_14.png">
+
 
 然后，终端SSH到iOS设备，执行以下命令，重启SpringBoard即可。
 
