@@ -6,7 +6,7 @@ Apple今年推出了Swift3.0，较2.3来说，3.0是一次重大的升级。关�
 ----------
 ## 内存分配
 通过查看Github上[Swift的源代码](https://github.com/apple/swift)语言分布
-<img src="http://img.blog.csdn.net/20161112210639104" width="600">
+<img src="./images/method_dispatch_1.png" width="600">
 
 可以看到
 
@@ -50,7 +50,7 @@ print(instanceSize) //16
 
 那么，这个内存结构如图
 <div align="center">
-<img src="http://img.blog.csdn.net/20161113103941446" width= "400">
+<img src="./images/method_dispatch_2.png" width= "400">
 </div>
 
 <font color="orange">Tips: 图中的每一格都是一个Word大小，在64位处理器上，是8个字节</font>
@@ -75,7 +75,7 @@ print(instanceSize) //8
 ```
 这时候的内存结构如图
 
-<img src="http://img.blog.csdn.net/20161113105228870" width= "400">
+<img src="./images/method_dispatch_3.png" width= "400">
 
 <font color="orange">Tips: 图中的每一格都是一个Word大小，在64位处理器上，是8个字节</font>
 
@@ -106,7 +106,7 @@ let sReverseSize = MemoryLayout<SReverse>.size //16
 我们来看看，内存对齐后的内存空间分布：
 
 
-<img src="http://img.blog.csdn.net/20161113110501231" width= "500">
+<img src="./images/method_dispatch_4.png" width= "500">
 
 内存对齐的原因是，
 > 现代CPU每次读数据的时候，都是读取一个word（32位处理器上是4个字节，64位处理器上是8个字节）。
@@ -165,7 +165,7 @@ ARC是相对于引用类型的。
 
 然后，当断点停在24行处的时候，Person的引用计数如下
 
-<img src="http://img.blog.csdn.net/20161113111716962" width="400">
+<img src="./images/method_dispatch_5.png" width="400">
 
 这里，底部的`thread_2673`是主线程堆Person对象的持有，是iOS系统默认添加。所以,` var leo = Person(name: "Leo", age: 25)`这一行后，准确的说是引用计数<font color="red">加</font>一，并不是引用计数<font color="red">为</font>一。当然，这些系统自动创建的也会自动销毁，我们无须考虑。
 
@@ -173,7 +173,7 @@ ARC是相对于引用类型的。
 因为引用计数的存在，Class在堆上需要额外多分配一个Word来存储引用计数：
 <div align="center">
 <br/>
-<img src="http://img.blog.csdn.net/20161113123408761" width="400">
+<img src="./images/method_dispatch_6.png" width="400">
 <br/>
 &nbsp
 </div>
@@ -232,7 +232,7 @@ let point1 = Point(x: 5.0, y: 5.0)
 point1.draw()
 print(MemoryLayout<Point>.size) //8
 ```
-<img src="http://img.blog.csdn.net/20161113140852585" width="400">
+<img src="./images/method_dispatch_7.png" width="400">
 
 ### 继承
 因为Class的实体会存储额外的Type信息，所以继承理解起来十分容易。子类只需要存储子类的Type信息即可。
@@ -269,7 +269,7 @@ points.forEach { (p) in
 //Draw point at(5.0, 5.0)
 //Draw point at(1.0, 2.0, 3.0)
 ```
-<img src="http://img.blog.csdn.net/20161113142144918" width="500">
+<img src="./images/method_dispatch_8.png" width="500">
 
 ### 协议
 
@@ -317,7 +317,7 @@ print(memoryOfDrawable2)
 这是因为Swift对于协议类型的采用如下的内存模型 - Existential Container。
 <div align="center">
 <Br/>
-<img src="http://img.blog.csdn.net/20161113150805552" width="300">
+<img src="./images/method_dispatch_9.png" width="300">
 <Br/>
 &nbsp
 </div>
@@ -328,18 +328,13 @@ Existential Container包括以下三个部分：
  - 第五个word：Protocol Witness Table(PWT)，用来存储协议的函数。
 
 那么，内存结构图，如下
-<div align="center">
-<Br/>
-<img src="http://img.blog.csdn.net/20161113152858186" width="500">
-<Br/>
-<p>[ point ]</p>
-</div>
 
-<div align="center">
-<img src="http://img.blog.csdn.net/20161113153233395" width="500">
 <Br/>
-<p>[ line ]</p>
-</div>
+<img src="./images/method_dispatch_10.png" width="500">
+<Br/>
+
+<img src="./images/method_dispatch_11.png" width="500">
+<Br/>
 
 ### 范型
 
@@ -356,7 +351,7 @@ drawACopy(Line(...))
 那么，范型在使用的时候，如何调用方法和存储值呢？
 
 <div align="center">
-<img src="http://img.blog.csdn.net/20161113155750072" width="500">
+<img src="./images/method_dispatch_12.png" width="500">
 <Br/>
 <p>[ 范型 ]</p>
 </div>
