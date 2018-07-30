@@ -6,7 +6,7 @@
 ### 工欲善其事，必先利其器
 首先，我们先来熟悉下Playground的IDE，这是官方给出的《牛顿碰撞试验》的例子，来讲解UIKit Dynamic Animation。官方可下载的还是swift 2的版本，我把这个版本转成Swift 3，放到[我的Github](https://github.com/LeoMobileDeveloper/Blogs/tree/master/DemoProjects/Playgrounds)上了。
 
-<img src="http://img.blog.csdn.net/20161229223224838?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/playground_1.png">
 
 我们先来看看这些部分分别代表什么？
 
@@ -28,7 +28,7 @@
 打开XCode->Get started with a playground。新建一个Playground，命名为**BasicPlayground**，这个完整的文件可以在这里下载到。
 最开始，这个Playground文件很简单。当我们把鼠标移动到辅助窗口的“hello playground”上面的时候，这时候的效果如下
 
-<img src="http://img.blog.csdn.net/20161230001942654?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/playground_2.png">
 
 注意到最右侧的两个按钮，其中
 
@@ -53,7 +53,7 @@ let leo = Person(name: "Leo", age: 25)
 ```
 这时候，我们选中**Show result**，效果如下
 
-<img src="http://img.blog.csdn.net/20161230003310970?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/playground_3.png">
 
 等等，为什么右侧的辅助编辑窗口显示的是Person，而不是直观的信息？原因是，这个类并没有实现协议`CustomStringConvertible`，这个协议决定了一个类的实例如何被Log。
 
@@ -74,7 +74,7 @@ extension Person:CustomStringConvertible{
 ## 模块划分
 和其他工程一样，Playground也支持模块划分。
 
-<img src="http://img.blog.csdn.net/20161231101659960?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="250">
+<img src="./images/playground_4.png">
 
 通常，你的Playground工程划分如下：
 
@@ -178,7 +178,8 @@ PlaygroundPage.current.liveView = demoView
 然后，
 
 效果
-<img src="http://img.blog.csdn.net/20170101143553009?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+<img src="./images/playground_5.gif">
 
 ---
 ## Markup语法
@@ -231,7 +232,7 @@ markup块
 ```
 这时候，选择**Editor** -> **Show Rendered Markup**,效果如下
 
-<img src="http://img.blog.csdn.net/20170101155224477?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/playground_6.png">
 
 我们来一点点讲解细节
 
