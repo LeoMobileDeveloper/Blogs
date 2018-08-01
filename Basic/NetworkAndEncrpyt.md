@@ -2,13 +2,13 @@
 
 网络的基础分层是OSI的七层架构：
 
-<img src="http://img.blog.csdn.net/20170719181108412?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="300">
+<img src="./images/network_layer_1.png" width="300">
 
 > OSI的全称是Open System Interconnection(开放系统互联模型),是由国际标准化组织ISO设计，解决不同体系结构网络互相连接的问题。
 
 实际应用中，五层架构是最常见的，也是最容易理解的：
 
-<img src="http://img.blog.csdn.net/20170719183823942?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="900">
+<img src="./images/network_layer_2.png" width="900">
 
 网络分层后，每一层都工作着不同的协议和实际的物理设备，下一层为上一层提供服务，上层的实现无需考虑下层的细节，相同层级之间进行相互通信。
 
@@ -22,7 +22,7 @@
 
 以[IEEE802.3](https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7%E6%A0%BC%E5%BC%8F)协议为例，物理层的一帧主要包括以下三部分：
 
-<img src="http://img.blog.csdn.net/20170716180034323?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/network_layer_3.png" width="500">
 
 > - Header: 帧头部信息，包括目标地址，源地址，Data段的长度等信息。
 > - Data: 帧实际传输的数据信息
@@ -76,11 +76,11 @@ IP地址包括网络地址和主机地址，通过[子网掩码](https://zh.wiki
 
 ipv4的数据包格式如下：
 
-<img src="http://img.blog.csdn.net/20170720154414780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/network_layer_4.png">
 
 ip的数据包是被放到物理层帧的data段里进行传输的：
 
-<img src="http://img.blog.csdn.net/20170720160954805?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/network_layer_5.png" width="500">
 
 
 ### 传输层
@@ -93,11 +93,11 @@ ip的数据包是被放到物理层帧的data段里进行传输的：
 
 以TCP为例，数据包格式如下:
 
-<img src="http://img.blog.csdn.net/20170704144315801?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/network_layer_6.png" width="500">
 
 同样可以简化为：header + data。这样数据包由高层到低层的结构进行了如下改变：
 
-<img src="http://img.blog.csdn.net/20170721134323514?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/network_layer_7.png" width="500">
 
 
 ---
@@ -107,7 +107,7 @@ ip的数据包是被放到物理层帧的data段里进行传输的：
 
 常见的工作在应用层的协议有：HTTP/HTTPS/FTP/SMTP等。比如HTTP是建立在TCP上的协议，那么HTTP在工作的时候数据包格式如下：
 
-<img src="http://img.blog.csdn.net/20170721134759529?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="500">
+<img src="./images/network_layer_8.png" width="500">
 
 
 ----
@@ -115,7 +115,7 @@ ip的数据包是被放到物理层帧的data段里进行传输的：
 
 在网络分层模型中，逻辑上是同层之间进行通信的，而实际的物理连接则是通过物理层中使用的具体介质。
 
-<img src="http://img.blog.csdn.net/20170721141659812?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/network_layer_9.png">
 
 以一次对http://www.baidu.com请求为例，讲解下分层的具体工作流程
 
