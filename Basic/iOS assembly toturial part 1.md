@@ -77,7 +77,7 @@ x系列寄存器是64位的，**只用低32bit的时候，称做w0~w30**。
 
 由于浮点数运算的特殊性，arm 64还有31个浮点数寄存器**q0~q31**，长度不同称谓也不同，**b，h，s，d，q**，分别代表byte(8位)，half(16位)，single(32位)，double(64位)，quad(128位)。
 
-<img src="https://img-blog.csdn.net/20180419225522819?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="600">
+<img src="./images/acc_1.png" width="600">
 
 
 
@@ -152,7 +152,7 @@ l_.str:                                 ; @.str
 	
 去除这些无用的部分后，main函数对应的汇编代码：
 
-<img src="https://img-blog.csdn.net/20180330140446798?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="=./images/acc_2.png">
 
 >ARM中，栈内存是由高地址向低地址分配的，所以栈顶置针向低移动，就是分配临时存储空间，栈顶置针向高移动，就是释放临时存储空间。
 
@@ -201,11 +201,11 @@ int main()
 
 max
 
-<img src="https://img-blog.csdn.net/20180330142615602?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_3.png">
 
 main
 
-<img src="https://img-blog.csdn.net/20180330171024986?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_4.png">
 
 
 这里，我们看到了传入参数的时候，参数是放到x0，x1中的：
@@ -250,7 +250,7 @@ add	sp， sp， #32             ; =32
 
 ### 方法头：
 
-<img src="http://img.blog.csdn.net/20180417150626317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/acc_5.png">
 
 图中，绿色表示空闲的栈内存，橘色表示main函数占用的栈内存。b main的含义是before main，即main函数执行之前的状态。
 
@@ -258,7 +258,7 @@ add	sp， sp， #32             ; =32
 
 ### 子程序(printf)调用
 
-<img src="http://img.blog.csdn.net/20180417152519074?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/acc_6.png">
 
 调用`bl	_printf`的时候，**bl命令首先会拷贝下一条执行的指令到LR**，这样子程序返回的时候才知道在哪条指令处继续执行。
 
@@ -266,7 +266,7 @@ add	sp， sp， #32             ; =32
 
 ### 方法尾
 
-<img src="http://img.blog.csdn.net/20180417161507159?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/acc_7.png">
 
 在printf返回的时候，首先从栈上恢复main函数的LR和FP，然后释放栈空间。可以从图中看到，方法返回后FP和SP都和调用printf之前一致。
 
@@ -348,7 +348,7 @@ while(a < 10){
 
 汇编代码
 
-<img src="http://img.blog.csdn.net/20180417110413712?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/acc_8.png">
 
 > 不难看出，for和if类似，都是通过条件判断，然后跳转到指定的符号去执行代码。
 
@@ -375,7 +375,7 @@ int main(){
 汇编：
 
 
-<img src="http://img.blog.csdn.net/20180417112749687?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/acc_9.png">
 
 咋一看什么乱七八糟的东西，这里我们把核心的几行代码抽出来：
 
@@ -422,19 +422,19 @@ int main(){
 
 `makePoint`汇编：
 
-<img src="https://img-blog.csdn.net/20180419143152491?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_10.png">
 
 一顿寄存器和栈操作猛如虎，**本质上就是为了把x写入s0，y写入s1作为返回值返回**。
 
 `logPoint`汇编
 
-<img src="https://img-blog.csdn.net/20180419223635540?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_11.png">
 
 可以看到，结构体作为参数的时候，**参数是通过s0和s1传入的**。
 
 main汇编
 
-<img src="https://img-blog.csdn.net/20180419223833629?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_12.png">
 
 注意，**结构体过大的时候，参数和返回值通过栈来传递，这一点和函数的参数个数过多的时候类似**。
 
@@ -462,11 +462,11 @@ int main(){
 
 `main`汇编：
 
-<img src="https://img-blog.csdn.net/20180420153447696?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_13.png">
 
 栈的使用情况：
 
-<img src="https://img-blog.csdn.net/2018042015384953?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_14.png">
 
 通过汇编，我们能够看到几点：
 
@@ -484,7 +484,7 @@ int main(){
 
 `logArray`汇编：
 
-<img src="https://img-blog.csdn.net/20180420121615528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hlbGxvX0h3Yw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<img src="./images/acc_15.png">
 
 下一篇链接：iOS汇编快速入门下篇（尚未完成）
 
