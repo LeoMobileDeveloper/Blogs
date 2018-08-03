@@ -29,7 +29,8 @@ cd LearnFlexBox/
 react-native run-ios
 ```
 会看到默认的截图
-<img src="http://img.blog.csdn.net/20160523215213234" width="300">
+
+<img src="./images/flexbox_1.png" width="300">
 
 <font color="red">由于模拟器截图实在太宽，所以本文把Demo范围限定在一个小的范围内
 重写Render方法</font>
@@ -99,11 +100,11 @@ flexDirection
 ```
 当flexDirection设置为`column`的时候效果
 
-<img src="http://img.blog.csdn.net/20160523221757450" width="200">
+<img src="./images/flexbox_2.png" width="200">
 
 当flexDirection设置为`row`的时候
 
-<img src="http://img.blog.csdn.net/20160523222840939" width="200">
+<img src="./images/flexbox_3.png" width="200">
 
 注意：<font color="red">React Native的Flexbox目前不支持row-reverse和column-reverse</font>
 
@@ -126,7 +127,7 @@ alignItems－垂直轴上的位置关系
   <View style={{width:50,height:60,backgroundColor:'orange'}}></View>
 </View>
 ```
-<img src="http://img.blog.csdn.net/20160524211901159" width="200"><img src="http://img.blog.csdn.net/20160524211929472" width="200"><img src="http://img.blog.csdn.net/20160524211952785" width="200">
+<img src="./images/flexbox_4.png" width="200"><img src="./images/flexbox_5.png" width="200"><img src="./images/flexbox_6.png" width="200">
 
 还有一种stretch表示拉伸，拉伸的时候不需要完整的设置高度宽度，比如
 
@@ -140,7 +141,7 @@ alignItems－垂直轴上的位置关系
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524212215652" width="200">
+<img src="./images/flexbox_7.png" width="200">
 
 
 ----------
@@ -159,7 +160,7 @@ alignSelf
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524213053117" width="200">
+<img src="./images/flexbox_8.png" width="200">
 
 ----------
 
@@ -181,7 +182,7 @@ justifyContent－水平轴上的位置关系
   <View style={{width:50,height:60,backgroundColor:'orange'}}></View>
 </View>
 ```
-<img src="http://img.blog.csdn.net/20160524214341053" width="200"><img src="http://img.blog.csdn.net/20160524214352413" width="200"><img src="http://img.blog.csdn.net/20160524214401366" width="200"><img src="http://img.blog.csdn.net/20160524214413101" width="200"><img src="http://img.blog.csdn.net/20160524214421812" width="200">
+<img src="./images/flexbox_9.png" width="200"><img src="./images/flexbox_10.png" width="200"><img src="./images/flexbox_11.png" width="200"><img src="./images/flexbox_12.png" width="200"><img src="./images/flexbox_13.png" width="200">
 
 ----------
 
@@ -198,11 +199,11 @@ flex-占据剩余空间的权重
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524215130580" width="200">
+<img src="./images/flexbox_14.png" width="200">
 
 当我们固定中间宽度为50，然后两边flex都是1的时候
 
-<img src="http://img.blog.csdn.net/20160524215317268" width="200">
+<img src="./images/flexbox_15.png" width="200">
 
 
 ----------
@@ -226,11 +227,11 @@ flexWrap-决定在flex的方向上填满后是否换行
 ```
 换行效果
 
-<img src="http://img.blog.csdn.net/20160524221617269" width="200">
+<img src="./images/flexbox_16.png" width="200">
 
 不换行效果
 
-<img src="http://img.blog.csdn.net/20160524221709184" width="200">
+<img src="./images/flexbox_17.png" width="200">
 
 ----------
 
@@ -246,7 +247,7 @@ top/bottom/left/right
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524221040791" width="200">
+<img src="./images/flexbox_18.png" width="200">
 
 
 ----------
@@ -272,7 +273,7 @@ padding相关
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524223613811" width="300">
+<img src="./images/flexbox_19.png" width="300">
 
 设置padding
 
@@ -283,7 +284,7 @@ padding相关
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524223658816" width="300">
+<img src="./images/flexbox_20.png" width="300">
 
 ----------
 
@@ -304,7 +305,7 @@ Border相关
   <View style={{width:50,height:50,backgroundColor:'pink',borderBottomWidth:3,borderColor:'white'}}></View>
 </View>
 ```
-<img src="http://img.blog.csdn.net/20160524222148326" width="200">
+<img src="./images/flexbox_21.png" width="200">
 
 ----------
 
@@ -331,7 +332,8 @@ margin相关
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524225200853" width="300">
+<img src="./images/flexbox_22.png" width="300">
+
 设置margin的时候
 
 ```
@@ -343,6 +345,6 @@ margin相关
 ```
 效果
 
-<img src="http://img.blog.csdn.net/20160524225118160" width="300">
+<img src="./images/flexbox_23.png" width="300">
 
 ----------
