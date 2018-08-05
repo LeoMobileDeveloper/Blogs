@@ -56,7 +56,9 @@ react-native run-ios
 会启动模拟器,如果启动成功，说明项目创建成功。
 
 我们首先会创建一个这样效果工程
-<img src="http://img.blog.csdn.net/20160519191907451" width="200">
+
+<img src="./images/navigator_1.gif" width="200">
+
 这时候的`index.ios.js` 中代码如下
 
 ```
@@ -301,7 +303,8 @@ var NavigationBarRouteMapper = {
    TouchableOpacity,
 ```
 这时候的效果如下
-<img src="http://img.blog.csdn.net/20160520203438218" width="300">
+
+<img src="./images/navigator_2.gif" width="300">
 
 ----------
 
