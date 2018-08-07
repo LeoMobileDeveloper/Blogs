@@ -40,11 +40,11 @@
 
 创建一个Demo工程的时候，运行后，模拟器截图应该是酱紫的。
 
-<img src="http://img.blog.csdn.net/20160621183436959" width="300">
+<img src="./images/animation_1.png" width="300">
 
 然后，只保留第一行文字，然后我们给这个默认的视图创建fade in动画，效果如下
 
-<img src="http://img.blog.csdn.net/20160621185417262" width="300">
+<img src="./images/animation_2.gif" width="300">
 
 代码
 
@@ -140,7 +140,7 @@ class Demo extends React.Component {
 
 效果
 
-<img src="http://img.blog.csdn.net/20160622120430634" width="200">
+<img src="./images/animation_3.gif" width="200">
 
 代码(省略了import和style)
 
@@ -216,9 +216,10 @@ Pan手势中
 ```
 
 ###Scroll驱动
+
 目标效果 - 随着ScrollView的相左滑动，最左边的一个Image透明度逐渐降低为0
 
-<img src="http://img.blog.csdn.net/20160622184659002" width="200">
+<img src="./images/animation_4.gif" width="200">
 
 核心代码
 
@@ -283,7 +284,7 @@ onPanResponderTerminate: (event, gestureState) => {}//手势中断
 
 目标效果- View随着手拖动而移动，手指离开会到原点
 
-<img src="http://img.blog.csdn.net/20160622221310034" width="320">
+<img src="./images/animation_5.gif" width="320">
 
 核心代码
 
@@ -339,7 +340,8 @@ class Demo extends React.Component {
 [LayoutAnimation](http://facebook.github.io/react-native/releases/0.28/docs/layoutanimation.html)在View由一个位置变化到另一个位置的时候，在下一个Layout周期自动创建动画。通常在<font color="red">setState前掉用`LayoutAnimation.configureNext`</font>
 
 ###一个简单的Demo
-<img src="http://img.blog.csdn.net/20160622224557102" width="300">
+
+<img src="./images/animation_6.gif" width="300">
 
 代码
 
@@ -405,7 +407,7 @@ spring: CallExpression #
 我们先创建一个默认的Navigator转场Demo
 回拉的时候，前一个时图的移动距离要小于后一个视图
 
-<img src="http://img.blog.csdn.net/20160624105054700" width="200">
+<img src="./images/animation_7.gif" width="200">
 
 这时候的核心代码如下,MainScreen和DetailScreen就是带一个Button的视图
 
@@ -478,6 +480,6 @@ configureScene={(route, routeStack) => baseConfig}
 ```
 这时候的动画如下
 
-<img src="http://img.blog.csdn.net/20160624105827118" width="200">
+<img src="./images/animation_8.gif" width="200">
 
 -------
