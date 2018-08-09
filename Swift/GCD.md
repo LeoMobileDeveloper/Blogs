@@ -1,7 +1,7 @@
 ## 前言
 我们首先来看一张图：
 
-<img src="http://img.blog.csdn.net/20170104102023666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/gcd_1.gif">
 
 我觉得这张动图很好的诠释了《把一个线程用到死的》核心价值观。
 
@@ -212,7 +212,7 @@ QoS的全称是quality of service。在Swift 3中，它是一个结构体，用�
 
 通常使用QoS为以下四种
 
-<img src="http://img.blog.csdn.net/20170105165829845?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/gcd_2.png" width="400">
 
 从上到下优先级依次降低。
 
@@ -661,7 +661,7 @@ concurrentQueue.async {
 
 用一张图来表示：
 
-<img src="http://img.blog.csdn.net/20170107163558127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<img src="./images/gcd_3.png">
 
 ---
 ## UserData
@@ -766,7 +766,7 @@ queueA.sync {
 ```
 死锁的原因很简单，形成了一个相互阻塞的环。
 
-<img src="http://img.blog.csdn.net/20170109213321664?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSGVsbG9fSHdj/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="400">
+<img src="./images/gcd_4.png" width="400">
 
 
 
