@@ -1,12 +1,3 @@
-## 关于我
-
-- [CSDN博客](http://blog.csdn.net/hello_hwc?viewmode=list)
-
-<a href="https://stackoverflow.com/users/3940672/leo"><img src="https://stackexchange.com/users/flair/4889039.png" width="208" height="58" alt="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites" title="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites"></a>
-
-如果发现博客有内容上的问题，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs/issues)。
-
-
 ## 基础
 
 - [网络分层与数据加密](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/NetworkAndEncrpyt.md)
@@ -25,6 +16,7 @@
 - [深入理解App的启动过程](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/What%20happened%20at%20startup%20time.md)
 - [Fishhook背后的黑魔法](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Behind%20fishhook.md)
 - [实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
+- [聊聊AppDelegate解耦](./iOS/AppDelegate解耦.md)
 
 ### iOS代码调试
 
@@ -68,3 +60,11 @@
 ## React
 
 - [学习React全家桶的笔记](https://github.com/LeoMobileDeveloper/React-Bucket-Note)
+
+## 作者
+
+- [CSDN博客](http://blog.csdn.net/hello_hwc?viewmode=list)
+
+- <a href="https://stackoverflow.com/users/3940672/leo"><img src="https://stackexchange.com/users/flair/4889039.png" width="208" height="58" alt="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites" title="profile for Leo on Stack Exchange, a network of free, community-driven Q&A sites"></a>
+
+如果发现博客有内容上的问题，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs/issues)。
