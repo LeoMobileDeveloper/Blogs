@@ -110,6 +110,16 @@ QTAppModuleRegister(PayService, QTAppEventPriorityDefault)
 
 ```
 
+也可以在具体的类中，直接监听：
+
+```
+// DemoViewController
+[QTSub(self, QTAppLifeCircleEvent) next:^(QTAppLifeCircleEvent *event) {
+     NSLog(@"%@",event.type);
+}];
+```
+
+
 ## 原理
 
 ### QTEventBus
