@@ -404,3 +404,13 @@ QTEventSubscriberMaker<QTMockIdEvent *> * event = self.eventBus.on(QTMockIdEvent
 QTLoginEvent * event;
 [QTEventBus.shared dispatch:event];
 ```
+
+## 踩坑记录
+
+### 通知多次addObserver
+
+[issue4](https://github.com/LeoMobileDeveloper/QTEventBus/issues/4)
+
+之前没有遇到过这个问题，天真的以为系统NotificationCenter在增加target/action时候会自动过滤，其实并没有。
+
+
