@@ -61,6 +61,10 @@
 
 - [学习React全家桶的笔记](https://github.com/LeoMobileDeveloper/React-Bucket-Note)
 
+## 读书笔记
+
+- [读书笔记](https://github.com/LeoMobileDeveloper/ReadingNotes) 推荐一些笔者度过的书
+
 ## 作者
 
 - [CSDN博客](http://blog.csdn.net/hello_hwc?viewmode=list)
