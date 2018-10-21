@@ -2,7 +2,7 @@
 
 Allocations用来分析静态内存分配。
 
-Demo项目：
+[Demo项目地址](https://github.com/LeoMobileDeveloper/Blogs/tree/master/DemoProjects/iOS/AllocationsDemo)
 
 ## Demo App
 
