@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZMf-eu-yaE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="oKN-Zy-m2W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZMf-eu-yaE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UZT-IL-FPL">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nK6-UF-SrK" kind="relationship" relationship="rootViewController" id="b4q-Aw-ony"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8W-l5-MCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="-564.46776611694156"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="cka-Pb-lKR">
+            <objects>
+                <viewController id="Pcy-Fp-Kl6" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dId-oI-Gpn"/>
+                        <viewControllerLayoutGuide type="bottom" id="aRX-p5-SLY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fMG-tn-16b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main" id="kFV-S8-M1j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pnS-n9-4gz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="-564"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="x6h-vj-Ju0">
+            <objects>
+                <viewController id="nK6-UF-SrK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bGV-Cf-yjp"/>
+                        <viewControllerLayoutGuide type="bottom" id="8nD-fJ-Uq7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="InE-b8-VAS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAw-J7-x3Y">
+                                <rect key="frame" x="160" y="318" width="54" height="30"/>
+                                <state key="normal" title="Phtotos"/>
+                                <connections>
+                                    <segue destination="Pcy-Fp-Kl6" kind="show" id="Uyt-3A-Kh2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KAw-J7-x3Y" firstAttribute="centerY" secondItem="InE-b8-VAS" secondAttribute="centerY" id="Cct-dr-ztM"/>
+                            <constraint firstItem="KAw-J7-x3Y" firstAttribute="centerX" secondItem="InE-b8-VAS" secondAttribute="centerX" id="ZGM-qN-g41"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="p29-lJ-W4I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQ2-yE-8tN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="-564"/>
+        </scene>
+    </scenes>
+</document>
