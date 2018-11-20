@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5Do-fq-hnc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Sbq-Vi-kmR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Do-fq-hnc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9m0-Qr-ucU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Oy-Py-OXr" kind="relationship" relationship="rootViewController" id="jKY-jD-OCW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kmg-gv-ek4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="-564.46776611694156"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="fS9-Ur-Req">
+            <objects>
+                <viewController id="rg0-Sf-iKv" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fyo-EI-64h"/>
+                        <viewControllerLayoutGuide type="bottom" id="jGc-Gr-iT7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hac-9z-3Fa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main" id="cP6-pN-8jr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iua-NS-XQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="-564"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="g4J-kk-oKe">
+            <objects>
+                <viewController id="0Oy-Py-OXr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GM5-y2-79Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="QhL-Bj-PVq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="quS-9A-3L5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HD4-ns-jjj">
+                                <rect key="frame" x="160" y="318" width="54" height="30"/>
+                                <state key="normal" title="Phtotos"/>
+                                <connections>
+                                    <segue destination="rg0-Sf-iKv" kind="show" id="F6U-Zl-2gp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HD4-ns-jjj" firstAttribute="centerX" secondItem="quS-9A-3L5" secondAttribute="centerX" id="c0V-tP-OBB"/>
+                            <constraint firstItem="HD4-ns-jjj" firstAttribute="centerY" secondItem="quS-9A-3L5" secondAttribute="centerY" id="eTA-ai-wvo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ann-5T-r1n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nq1-bq-DTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="-564"/>
+        </scene>
+    </scenes>
+</document>
