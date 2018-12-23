@@ -394,7 +394,8 @@ XCode创建的Target是Framework的时候，默认define module会设置为YES�
 
 那么，如何定义一个module呢？答案是：modulemap文件，这个文件描述了一组头文件如何转换为一个module，举个例子：
 
-```framework module Foundation  [extern_c] [system] {
+```
+framework module Foundation  [extern_c] [system] {
 	umbrella header "Foundation.h" // 所有要暴露的头文件
  	export *
 	module * {
@@ -604,13 +605,15 @@ tm/I1g+0u2Cx9qrPJeC0zgyuVUE=
 
 启动App的时候：
 
-- 验证bundile id，entitlements和`embedded.mobileprovision`中的AppId，entitlements是否一致
+- 验证bundle id，entitlements和`embedded.mobileprovision`中的AppId，entitlements是否一致
 - 判断device id包含在embedded.mobileprovision里
 	- App Store和企业证书不做验证
 - 如果是企业证书，验证用户是否信任企业证书
 - App启动后，当缺页中断(page fault)发生的时候，系统会把对应的mach-o页读取物理内存，然后验证这个page的签名是否正确。
+- 以上都验证通过，App才能正常启动
+
 
 
 ## 小结
 
-写了很久的一篇文章，如有内容错误，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs)指正。
+如有内容错误，欢迎[issue](https://github.com/LeoMobileDeveloper/Blogs)指正。
