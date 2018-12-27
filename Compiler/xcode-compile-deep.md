@@ -129,7 +129,7 @@ main函数AST的结构如下：
 
 ### CodeGen
 
-CodeGen遍历语法树，生成LLVM LR代码。LLVM IR是前端的输出，后端的输入。
+CodeGen遍历语法树，生成LLVM IR代码。LLVM IR是前端的输出，后端的输入。
 
 ```
 xcrun clang -S -emit-llvm main.c -o main.ll
@@ -157,7 +157,7 @@ LLVM会对生成的IR进行优化，优化会调用相应的Pass进行处理。P
 
 ### 生成汇编代码
 
-LLVM对LR进行优化后，会针对不同架构生成不同的目标代码，最后以汇编代码的格式输出：
+LLVM对IR进行优化后，会针对不同架构生成不同的目标代码，最后以汇编代码的格式输出：
 
 生成arm 64汇编：
 
