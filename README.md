@@ -3,12 +3,11 @@
 - [网络分层与数据加密](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/NetworkAndEncrpyt.md)
 - [SQLite基础篇](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/Sqlite-Basic.md)
 - [SQLite的事务,锁和WAL模式](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/Sqlite%E7%9A%84%E4%BA%8B%E5%8A%A1%2C%E9%94%81%E5%92%8CWAL%E6%A8%A1%E5%BC%8F.md)
-- [iOS汇编快速入门上篇](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/iOS%20assembly%20toturial%20part%201.md)
+- [iOS汇编快速入门](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/iOS%20assembly%20toturial%20part%201.md)
 
 
 ## iOS
 
-- [iOS系统Bug踩坑记录](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/FuckSystemBugs.md)
 - [iOS编译过程的原理和应用](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/iOS%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8.md)
 - [深入浅出iOS编译](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Compiler/xcode-compile-deep.md)
 - [iOS自动化测试的那些干货](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/iOS%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%9A%84%E9%82%A3%E4%BA%9B%E5%B9%B2%E8%B4%A7.md)
@@ -20,6 +19,7 @@
 - [Fishhook背后的黑魔法](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Behind%20fishhook.md)
 - [实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
 - [聊聊AppDelegate解耦](./iOS/AppDelegate解耦.md)
+- [iOS系统Bug踩坑记录](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/FuckSystemBugs.md)
 
 ### iOS代码调试
 
@@ -47,7 +47,7 @@
 - [Playground精讲](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Playground.md)
 - [GCD精讲](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/GCD.md)
 - [优雅的开发Swift和Objective C混编的Framework](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/%20%E4%BC%98%E9%9B%85%E7%9A%84%E5%BC%80%E5%8F%91Swift%E5%92%8CObjective%20C%E6%B7%B7%E7%BC%96%E7%9A%84Framework.md)
-- [Swift中的错误处理](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/ErrorHandling.md)
+- [详解Swift中的错误处理](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/ErrorHandling.md)
 
 
 ## ReactNative
