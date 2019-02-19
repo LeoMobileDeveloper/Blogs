@@ -34,3 +34,17 @@
     }
 }
 ```
+
+### Storyboard本地化
+
+描述：有个需求是本地化LaunchScreen,.storyboard上的文字,最初的方案是本地化字符串：
+
+ <img src="./images/storyboard_localize_1.png">
+ 
+然后，修改对应strings文件中的内容。
+
+现象：简体中文本地化失败，始终读取的是英文。
+
+解决方案：改用本地化storyboard文件本身，这里选择Interface Builder Storyboard。
+
+ <img src="./images/storyboard_localize.png">
