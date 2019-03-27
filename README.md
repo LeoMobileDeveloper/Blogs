@@ -65,13 +65,13 @@
 - [SDWebImage源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20SDWebImage.md)
 - [Moya的设计之道](./Swift/AnaylizeMoya.md)
 
+## 读书笔记
+
+- TODO
+
 ## React
 
 - [学习React全家桶的笔记](https://github.com/LeoMobileDeveloper/React-Bucket-Note)
-
-## 读书笔记
-
-- [读书笔记](https://github.com/LeoMobileDeveloper/ReadingNotes) 推荐一些笔者度过的书
 
 ## 作者
 
