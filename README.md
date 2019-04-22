@@ -20,6 +20,7 @@
 - [实现一个优雅的iOS消息总线](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E9%9B%85%E7%9A%84iOS%E6%B6%88%E6%81%AF%E6%80%BB%E7%BA%BF.md)
 - [聊聊AppDelegate解耦](./iOS/AppDelegate解耦.md)
 - [iOS系统Bug踩坑记录](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/FuckSystemBugs.md)
+- [聊聊应用内购买](https://blog.csdn.net/Hello_Hwc/article/details/89441828)
 
 ### iOS代码调试
 
