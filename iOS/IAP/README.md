@@ -37,7 +37,7 @@
 
 对比
 
-<img src="./product_types.png">
+<img src="./images/product_types.png">
 
 ### 订阅
 
@@ -47,7 +47,7 @@ Apple也在主推订阅模式，所以普通的内购商品手续费是30%，而
 
 一个订阅商品要处在一个群组里，**一个群组里，用户一次只能订阅一个商品**，以腾讯视频为例：
 
-<img src="./tencent_video.png">
+<img src="./images/tencent_video.png">
 
 可以为订阅配置等级，类似会员的订阅等级往往都是相同的，因为他们提供的服务是一样的。**相同等级切换的时候，会在当前订阅周期结束的时候生效**。比如，1月10日订阅的连续包月，1月15日从包月切换到了包年，那么在2月10日的时候会扣掉一年的钱。
 
@@ -63,7 +63,7 @@ Apple也在主推订阅模式，所以普通的内购商品手续费是30%，而
 
 推荐促销一共有以下三种类型：
 
-<img src="./subscribe_discount.png"> 
+<img src="./images/subscribe_discount.png"> 
 
 三种优惠中，推荐的是**免费试用**：比如第一个月免费，第二个月开始扣费。注意，你应该用优质的产品或者服务去留住这些新增的订阅用户，而不是期望用户忘记取消，好的产品靠的是硬实力，而不是投机取巧。
 
@@ -81,13 +81,13 @@ Apple也在主推订阅模式，所以普通的内购商品手续费是30%，而
 
 [Subscribe Offer](https://developer.apple.com/cn/app-store/subscriptions/?cid=win-back-subscribers-asc-w-cn#subscription-offers)用来为那些已经订阅过的用户提供优惠，并且为**哪些用户提供优惠是开发者自己可控的**，这样开发者就可以自定策略来提高留存，或者赢回已经取消订阅的用户。
 
-<img src="intro_vs_sub.png">
+<img src="./images/intro_vs_sub.png">
 
 ### App Store推广
 
 在iOS 11以后，App Store多了一个入口，可以让开发者在App Store上推广IAP项目，以网易云音乐为例：
 
-<img src="./app_store_promotio2.png">
+<img src="./images/app_store_promotio2.png">
 
 这个推广位的逻辑是：
 
@@ -109,13 +109,13 @@ You talk too much，show me the code。
 
 IAP的大致原理：用户在App中通过StoreKit发起购买请求，接着App Store扣款产生一个receipt(收据)给App，App把收据发送给Server，Server验证收据后向用户交付对应的虚拟内容。
 
-<img src="arch.png" width="400">
+<img src="./images/arch.png" width="400">
 
 不难看出，**IAP的枢纽是App**，这也是让无数开发者头疼的地方。实践证明，这种架构设计容易发生丢单(花钱不到账)或者无法购买。当然，对于个人开发者来说这种模式是友好的，因为他们不需要搭个服务器，然后码一遍服务端的代码了。
 
 以一次完整的购买为例，看看都经过了哪些步骤：
 
-<img src="./process.png" width=500>
+<img src="./images/process.png" width=500>
 
 1. App通过SKProductRequest来请求商品
 2. 通过`SKProductsRequestDelegate`中的代理方法，获得SKProduct
@@ -149,7 +149,7 @@ StoreKit提供的核心API是`SKPaymentQueue`，应该在**App启动的时候**(
 
 而通常的支付系统的设计是：生成订单 -> 支付成功 -> 完成订单。IAP也可以以同样的方式来设计，只需要在2，3步之前，向服务端发送一个API，生成一笔待支付订单，然后在第6步完成订单的时候，带着这个订单id即可。
 
-<img src="./full_order.png" width="400">
+<img src="./images/full_order.png" width="400">
 
 这种方式的优点：
 
@@ -192,7 +192,7 @@ transaction有以下几种状态：
 
 然后根据家长的处理结果，deferred状态进行如下转换：
 
-<img src="./deferred.png" width="400">
+<img src="./images/deferred.png" width="400">
 
 注意:
 
@@ -273,7 +273,7 @@ transaction.originalTransaction.transactionIdentifier
 
 通知的字段可以在[官方文档](https://developer.apple.com/documentation/storekit/in-app_purchase/enabling_status_update_notifications)里找到，这里介绍下有哪几种类型的通知：
 
-<img src="./server_to_server.png">
+<img src="./images/server_to_server.png">
 
 几点说明：
 
@@ -296,7 +296,7 @@ transaction.originalTransaction.transactionIdentifier
 - 订阅的新用户有资格
 - 订阅的老用户过期后续订且之前没有享受过订阅
 
-<img src="./intro_offer.png">
+<img src="./images/intro_offer.png">
 
 所以，这块的开发逻辑是：
 
@@ -379,11 +379,11 @@ Apple有两套内购Server：sandbox和production。**只有从App Store上下�
 
 sandbox账户可以单独登陆，测试起来方便些：
 
-<img src="./sandbox_account.png" width="300">
+<img src="./images/sandbox_account.png" width="300">
 
 再提下自动续期订阅的测试，在sandbox环境自动续期订阅会加速，且**每天最多自动续费6次**，对照表如下：
 
-<img src="./time_map.png">
+<img src="./images/time_map.png">
 
 > Tips: 订阅测试需要一批新的沙箱技术测试账号，因为**首次订阅这个case只有新的Apple Id能满足**。
 
@@ -424,7 +424,7 @@ App集成订阅的需要提供一些metadata信息，这也是审核需要的：
 - App Store的描述信息里加上《自动续费服务说明》
 - App内的充值界面提供两个链接：会员服务协议，自动续费服务规则。
 
-<img src="./protocol.png">
+<img src="./images/protocol.png">
 
 ### 改信息
 
@@ -439,8 +439,6 @@ IAP商品改价格是不需要审核的，但是会有一段时间才会生效�
 买了内购商品后，是可以打电话给Apple客服退款的，但这时候App内对应的虚拟商品已经交付，利用这个漏洞，就可以薅羊毛了。
 
 收据中有个字段是：`cancellation_date`，可以用这个字段来判断用户退款了。但只有非消耗型，自动续期订阅，非自动续期订阅可以判断，**消耗型无解**。
-
-## 总结
 
 
 ## 附录
