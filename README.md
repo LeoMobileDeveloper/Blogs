@@ -5,7 +5,6 @@
 - [SQLite的事务,锁和WAL模式](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/Sqlite%E7%9A%84%E4%BA%8B%E5%8A%A1%2C%E9%94%81%E5%92%8CWAL%E6%A8%A1%E5%BC%8F.md)
 - [iOS汇编快速入门](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Basic/iOS%20assembly%20toturial%20part%201.md)
 
-
 ## iOS
 
 - [iOS编译过程的原理和应用](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/iOS%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8.md)
@@ -34,15 +33,14 @@
 - [Allocations - 内存优化](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Instruments/Allocations.md)
 - [TimeProfiler - 卡顿优化](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Instruments/TimeProfiler.md)
 
-## ObjectiveC
+### ObjectiveC
 - [深入理解ARC](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3ARC.md)
 - [Block 背后的黑魔法](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Dark%20magic%20of%20block.md)
 - [消息转发机制与Aspects源码解析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E6%B6%88%E6%81%AF%E8%BD%AC%E5%8F%91%E6%9C%BA%E5%88%B6%E4%B8%8EAspects%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 - [Objective C范型](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E8%81%8A%E8%81%8AObjective%20C%E8%8C%83%E5%9E%8B.md)
 - [深入理解Toll-Free Bridging](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Toll-Free%20Bridging.md)
 
-
-## Swift
+### Swift
 
 - [Swift进阶之内存模型和方法调度](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Method%20Dispatch%20and%20Memory%20Layout.md)
 - [Playground精讲](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Playground.md)
@@ -50,6 +48,13 @@
 - [优雅的开发Swift和Objective C混编的Framework](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/%20%E4%BC%98%E9%9B%85%E7%9A%84%E5%BC%80%E5%8F%91Swift%E5%92%8CObjective%20C%E6%B7%B7%E7%BC%96%E7%9A%84Framework.md)
 - [详解Swift中的错误处理](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/ErrorHandling.md)
 
+### 源码解析
+
+- [Alamofire的设计之道](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Art%20of%20Alamofire.md)
+- [Mantle源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20Mantle.md)
+- [AsyncDisplayKit源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20AsyncDisplayKit.md)
+- [SDWebImage源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20SDWebImage.md)
+- [Moya的设计之道](./Swift/AnaylizeMoya.md)
 
 ## ReactNative
 
@@ -58,21 +63,11 @@
 - [细说Navigator](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/Navigator.md)
 - [flexbox入门](https://github.com/LeoMobileDeveloper/Blogs/blob/master/ReactNative/FlexBox.md)
 
-## 源码解析
-
-- [Alamofire的设计之道](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Swift/Art%20of%20Alamofire.md)
-- [Mantle源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20Mantle.md)
-- [AsyncDisplayKit源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20AsyncDisplayKit.md)
-- [SDWebImage源码分析](https://github.com/LeoMobileDeveloper/Blogs/blob/master/iOS/Anaylize%20SDWebImage.md)
-- [Moya的设计之道](./Swift/AnaylizeMoya.md)
+## Python
 
 ## 读书笔记
 
 - TODO
-
-## React
-
-- [学习React全家桶的笔记](https://github.com/LeoMobileDeveloper/React-Bucket-Note)
 
 ## 作者
 
