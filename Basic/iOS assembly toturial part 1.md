@@ -173,7 +173,7 @@ l_.str:                                 ; @.str
 知识点：
 
 > - LDR (**L**oa**D** Register) 将数据从内存读取到寄存器。
-> - STR (**ST**ore **R**egister) 将数据村寄存器存储到内存。
+> - STR (**ST**ore **R**egister) 将数据从寄存器存储到内存。
 
 ## 函数调用
 
