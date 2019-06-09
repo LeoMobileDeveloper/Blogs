@@ -65,9 +65,7 @@
 
 ## Python
 
-## 读书笔记
-
-- TODO
+- python3快速入门(TODO)
 
 ## 作者
 
