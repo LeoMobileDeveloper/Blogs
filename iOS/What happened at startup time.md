@@ -14,7 +14,7 @@
 - Dylib 动态库
 - Bundle 无法被连接的动态库，只能通过dlopen()加载
 - Image 指的是Executable，Dylib或者Bundle的一种，文中会多次使用Image这个名词。
-- Framework 动态库和对应的头文件和资源文件的集合
+- Framework 动态库和对应的头文件和资源文件的集合，note：framework也可以包含静态库，但静态库不是Macho-O
 
 Apple出品的操作系统的可执行文件格式几乎都是mach-o，iOS当然也不例外。
 mach-o可以大致的分为三部分：
