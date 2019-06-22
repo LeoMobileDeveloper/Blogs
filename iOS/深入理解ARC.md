@@ -1,4 +1,4 @@
-##前言
+## 前言
 本文的ARC特指Objective C的ARC，并不会讲解其他语言。另外，本文涉及到的原理部分较多，适合有一定经验的开发者。
 
 -----
@@ -184,23 +184,69 @@ struct SideTable {
 ## Autorelease pool
 上文提到了，autorelease方法的作用是把对象放到autorelease pool中，到pool drain的时候，会释放池中的对象。举个例子
 
-```
-    __weak NSObject * obj;
-    NSObject * temp = [[NSObject alloc] init];
-    obj = temp;
-    NSLog(@"%@",obj); //非空
-```
+先新建一个自定义类CustomObject
 
-放到auto release pool中，
+- ARC的规则下，`alloc/init/new/copy/mutableCopy`开头的方法返回的对象**不是**autorelease对象
 
 ```
-    __weak NSObject * obj;
-    @autoreleasepool {
-        NSObject * temp = [[NSObject alloc] init];
-        obj = temp;
+@interface CustomObject: NSObject
+@end
+
+@implementation CustomObject
+
+//这个方法返回autorelease对象
++ (instancetype)object{
+    return [[CustomObject alloc] init];
+}
+
+- (void)dealloc{
+    NSLog(@"CustomObject Dealloc");
+}
+
+@end
+
+```
+
+先确定[CustomObject object]返回的对象是autorelease的：
+
+```
+   __weak CustomObject * weakRef;
+    {
+        CustomObject * temp = [CustomObject object];
+        weakRef = temp;
     }
-    NSLog(@"%@",obj); //null
+    NSLog(@"%@",weakRef);
 ```
+
+看到的log是
+
+```
+2019-06-22 23:59:33.328198+0800 Demo[82431:5549926] <CustomObject: 0x6000005a3e50>
+2019-06-22 23:59:33.330740+0800 Demo[82431:5549926] CustomObject Dealloc
+```
+
+这是因为`[CustomObject object]`返回的是一个autorelease对象，在作用域(大括号)结束后，并不会立刻被释放，所以在NSLog处还能看到对象的地址。
+
+感兴趣的同学可以把`[CustomObject object]`替换成`[[CustomObject alloc] init]`，会发现作用域结束后立刻释放。
+
+假如我们用autorelease包裹后：
+
+```
+    __weak CustomObject * weakRef;
+    @autoreleasepool {
+        CustomObject * temp = [CustomObject object];
+        weakRef = temp;
+    }
+    NSLog(@"%@",weakRef);
+```
+
+会看到dealloc方法先调用，：
+
+```
+2019-06-23 00:02:30.946948+0800 Demo[82465:5551793] CustomObject Dealloc
+2019-06-23 00:02:30.947106+0800 Demo[82465:5551793] (null)
+```
+
 
 > 可以看到，放到自动释放池的对象是在超出自动释放池作用域后立即释放的。事实上在iOS 程序启动之后，主线程会启动一个Runloop，这个Runloop在每一次循环是被自动释放池包裹的，在合适的时候对池子进行清空。
 
