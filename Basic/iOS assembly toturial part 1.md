@@ -59,7 +59,7 @@ ARM64常见的的通用寄存器31个64bit，命名为x0-x30，作用：
 | x18 |  | 平台保留寄存器，应用不可以使用。 |
 | x17 | IP1 | The second intra-procedure-call temporary register (can be used by call veneers and PLT code); at other times may be used as a temporary register. |
 | x16 | IP0 | The first intra-procedure-call scratch register (can be used by call veneers and PLT code); at other times may be used as a temporary register. |
-| x9...r15 |	 | Temporary registers |
+| x9...x15 |	 | Temporary registers |
 | x8 | | 间接返回值寄存器，在一些特殊情况下，函数的返回值是通过x8返回的。 |
 | x0...x7 | 	 | 用来参数传递给子程序或者从函数中返回值，也可以用来存储中间值 |
 
