@@ -29,9 +29,7 @@ Objective C/C/C++使用的编译器前端是[clang](https://clang.llvm.org/docs/
 
 ### LLVM
 
-LLVM命名源自Low Level Virtual Machine，是一个强大的编译器开发工具套件，听起来像是虚拟机，但实际上LLVM和传统意义的虚拟机关系不大，只不过项目最初的名字是LLVM罢了。
-
-LLVM的核心库提供了现代化的source-target-independent[优化器](https://llvm.org/docs/Passes.html)和支持诸多流行CPU架构的代码生成器，这些核心代码是围绕着LLVM IR(中间代码)建立的。
+LLVM是一个强大的编译器开发工具套件，LLVM的核心库提供了现代化的source-target-independent[优化器](https://llvm.org/docs/Passes.html)和支持诸多流行CPU架构的代码生成器，这些核心代码是围绕着LLVM IR(中间代码)建立的。
 
 基于LLVM，又衍生出了一些强大的子项目，其中iOS开发者耳熟能详的是：[Clang](http://clang.llvm.org/)和[LLDB](http://lldb.llvm.org/)。
 
