@@ -639,11 +639,108 @@ lambda表达式可以用来表示一类无序定义标识符的函数或者子�
 
 在python中，解决这两个问题的方式就是模块。模块是一个包含Python定义和语句的文件，模块名就是文件名去掉.py后缀。
 
+模块还能解决函数重名的问题。同一个文件里，如果定义了两个一样的函数，那么第二个会把第一个覆盖掉，但是在两个模块里，允许出现同名函数。
 
+新建两个文件，logger1和logger2
 
+```
+logger1.py
+#!/usr/bin/env python3
  
+def log():
+  print('hello leo')
+  
+
+logger2.py
+#!/usr/bin/env python3
+ 
+def log():
+  print('hello lina')
+```
+
+然后，引用这两个文件，并调用里面的log函数
+
+```
+import logger1,logger2
+
+logger1.log()
+logger2.log()
+``` 
+
+输出
+
+```
+➜ python3 demo.py
+hello leo
+hello lina
+```
+
+引用的时候，可以用别名
+
+```
+import logger1 as l1
+import logger2 as l2
+
+l1.log()
+l2.log()
+```
+
+模块在import的时候，python脚本会从上之下执行，可以通过判断`__name__=='__main__'`来判断是被import，还是直接执行的：
+
+```
+#!/usr/bin/env python3
+
+def log():
+    print('hello leo')
+
+#import的时候，不要执行这个方法
+if __name__ == '__main__':
+   log()
+
+```
 
 ### 类
+
+用`class`关键字来定义类，`__init__`来定义构造哈数，属性直接通过在构造函数中赋值即可，不像其他语言那样需要证明
+
+```
+class Logger:
+    def __init__(self,prefix):
+        self.prefix = prefix
+    def log_message(self,content):
+        print(self.prefix + ":" + content)
+```
+
+创建对象和调用方法
+
+```
+l = Logger("Leo")
+l.log_message("hi~")
+```
+
+属性分为公开和私有的，双下划线开头的表示私有：
+
+```
+class Logger:
+    def __init__(self,prefix):
+        self.__prefix = prefix
+    def log_message(self,content):
+        print(self.__prefix + ":" + content)
+
+l = Logger("Leo")
+l.log_message("hi~")
+print(l.__prefix)
+```
+然后执行，会发现报错属性找不到
+
+```
+➜  python python demo.py  
+Leo:hi~
+Traceback (most recent call last):
+  File "demo.py", line 9, in <module>
+    print(l.__prefix)
+AttributeError: Logger instance has no attribute '__prefix'
+```
 
 ### 异常
 
