@@ -66,7 +66,7 @@
 
 ## Python
 
-- python3快速入门(TODO)
+- [Python3快速入门](https://github.com/LeoMobileDeveloper/Blogs/blob/master/Python/Python%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)
 
 ## 作者
 
