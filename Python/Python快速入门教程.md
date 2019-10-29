@@ -742,11 +742,88 @@ Traceback (most recent call last):
 AttributeError: Logger instance has no attribute '__prefix'
 ```
 
+### 文件
+
+通过open可以打开文件，然后进行读写。
+
+- '`r`' 读(默认)
+- `'w'` 写(截断之前的内容)
+- `'x'` 写，如果之前存在内容会触发异常
+- `'a'` 追加内容到文件结尾
+- `'b'` 二进制模式
+- `'t'` 文本模式(默认)
+- `'t'` 读写模式
+
+比如，一个文本文件content.txt：
+
+```
+Environment in Bristol
+Economic history of the Russian Federation
+Energy in Chile
+Employee monitoring
+E-Government in South Korea
+```
+然后，通过read函数读取文件内容，注意打开文件后要关闭
+
+```
+def read_file(file_name):
+    f = open(file_name, 'r', encoding='utf-8')
+    print(f.read())
+    f.close()
+
+if __name__ == '__main__':
+    read_file('content.txt')
+```
+
+也可以通过with语句，来指定文件对象的上下文，然后离开上下文的时候自动释放；可以通过for in逐行读取，或者通过readlines()把内容读取到一个容器里：
+
+```
+def read_file(file_name):
+    with open(file_name,'r',encoding='utf-8') as f:
+        for line in f:
+            print(line.rstrip())
+
+    with open(file_name,'r',encoding='utf-8') as f:
+        print(f.readlines())
+
+if __name__ == '__main__':
+    read_file('content.txt')
+```
+
 ### 异常
 
-### 文件处理
+python中的异常可以用try-expect-finally来处理
 
-### 调用shell
+- try 执行可能会抛出异常的代码块
+- expect 捕获异常
+- finally 一定会执行的代码，一般用来释放资源等等
 
-### 调用C/C++
+```
+def read_file(file_name):
+    try:
+        with open(file_name,'r',encoding='utf-8') as f:
+            for line in f:
+                print(line.rstrip())
+    except FileNotFoundError as ex:
+        print(ex)
+        print("File not found")
+    finally:
+        print("Code always run")
 
+if __name__ == '__main__':
+    read_file('abcd.txt')
+
+```
+
+程序里也可以手动抛出异常
+
+```
+raise NameError("test error")
+```
+
+python3中，可以通过以下方式查找内置的error
+
+```
+>>> import builtins
+>>> dir(builtins)
+```
