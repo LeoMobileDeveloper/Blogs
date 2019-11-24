@@ -87,6 +87,12 @@ service nginx restart
 
 ## 本机
 
+安装部署插件
+
+```
+npm install hexo-deployer-git --save
+```
+
 修改`_config.yml`，修改文件最后的depoly信息
 
 ```
@@ -111,3 +117,5 @@ hexo deploy
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@116.62.207.24
 ```
+
+
