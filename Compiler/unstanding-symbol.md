@@ -218,11 +218,11 @@ clang来提供了一个全局的开关，用来设置符号的默认可见性：
 
 ```
 //头文件
-#define AWE_EXPORT __attribute__((visibility("default")))
-AWE_EXPORT void method_1(void);
+#define LH_EXPORT __attribute__((visibility("default")))
+LH_EXPORT void method_1(void);
 
 //实现文件
-AWE_EXPORT void method_1(){
+LH_EXPORT void method_1(){
     NSLog(@"1");
 }
 ```
