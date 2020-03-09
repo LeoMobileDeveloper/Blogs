@@ -111,7 +111,7 @@ kdebug_signpost_end(10, 0, 0, 0, 0);
 
 ### Thread State Trace
 
-System Trace一个比较很重要的特性就是能看到线程不同的状态，以及状态之间切换的原因，通常我们会选择一个时间段，然后汇总观察结果：
+System Trace一个很重要的特性就是能看到线程不同的状态，以及状态之间切换的原因，通常我们会选择一个时间段，然后汇总观察结果：
 
 <img src="./images/SystemTrace/img13.png">
 
@@ -119,7 +119,7 @@ System Trace一个比较很重要的特性就是能看到线程不同的状态�
 
 - Running，线程在CPU上运行
 - Blocked，线程被挂起，原因有很多，比如等待锁，sleep，File Backed Page In等等。
-- Runnable，线程处于可执行状态，但此时等CPU有资源的时候，就可以运行
+- Runnable，线程处于可执行状态，等CPU空闲的时候，就可以运行
 - Interrupted，被打断，通常是因为一些系统事件，一般不需要关注
 - Preempted，被抢占，优先级更高的线程进入了Runnable状态
 
@@ -129,7 +129,7 @@ Blocked和Preempted是优化的时候需要比较关注的两个状态，分析�
 
 > Tips：在线程上右键，可以快速把线程设置为filter或者pin，方便分析，尤其是大型App的线程非常多的情况下。
 
-除了Thread State Event比较有用，另外一个比较有用的事Narrative，这里会把所有的事件，包括下文的虚拟内存等按照时间轴的方式汇总：
+除了Thread State Event比较有用，另外一个比较有用的是Narrative，这里会把所有的事件，包括下文的虚拟内存等按照时间轴的方式汇总：
 
 <img src="./images/SystemTrace/img15.png">
 
