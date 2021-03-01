@@ -189,7 +189,7 @@ __text节的地址是0x1000021B0，大小是0x0077EBC3，而二者相加的下�
 0x100A46768	0x00000038	__DATA	__objc_protorefs 
 0x100A467A0	0x000020E8	__DATA	__objc_classrefs 
 0x100A48888	0x000019C0	__DATA	__objc_superrefs // OC 父类引用
-0x100A4A248	0x0000A500	__DATA	__objc_ivar // OC iar
+0x100A4A248	0x0000A500	__DATA	__objc_ivar // OC ivar
 0x100A54748	0x00015CC0	__DATA	__objc_data
 0x100A6A420	0x00007A30	__DATA	__data
 0x100A71E60	0x0005AF70	__DATA	__bss
