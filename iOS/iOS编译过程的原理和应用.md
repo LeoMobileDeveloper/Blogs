@@ -356,7 +356,7 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 //...
 #endif
 ```
-同样，我们同样也可以定义其他预处理变量,在XCode-选中Target-build settings中，搜索proprecess。然后点击图中蓝色的加号，可以分别为debug和release两种模式设置预处理宏。
+同样，我们同样也可以定义其他预处理变量,在XCode-选中Target-build settings中，搜索preprocess。然后点击图中蓝色的加号，可以分别为debug和release两种模式设置预处理宏。
 比如我们加上：`TestServer`，表示在这个宏中的代码运行在测试服务器
 
 <img src="./images/compile_9.png" width="600">
@@ -381,7 +381,7 @@ __attribute__ ((warn_unused_result)) //如果没有使用返回值，编译的�
 - Embed Pods Framework，运行脚本来链接三方库的静态/动态库
 - Copy Pods Resources，运行脚本来拷贝三方库的资源文件 
 
-而这些配置信息都存储在这个文件(.xcodeprog)里
+而这些配置信息都存储在这个文件(.xcodeproj)里
 
 <img src="./images/compile_11.png" width="250">
 
