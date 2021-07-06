@@ -20,7 +20,7 @@ iOS开发目前的常用语言是：Objective和Swift。二者都是编译语言
 ----------
 ## iOS编译
 
-Objective C采用Clang(swift采用[swift](https://swift.org/compiler-stdlib/#compiler-architecture))作为编译器前端，LLVM作为编译器后端。
+Objective C采用Clang(swift采用[swiftc](https://swift.org/compiler-stdlib/#compiler-architecture))作为编译器前端，LLVM作为编译器后端。
 
 简单的编译过程如图
 
@@ -28,7 +28,7 @@ Objective C采用Clang(swift采用[swift](https://swift.org/compiler-stdlib/#com
 
 ### 编译器前端
 
-> 编译器前端的任务是进行：语法分析，语义分析，生成中间代码(intermediate representation )。在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。
+> 编译器前端的任务是进行：词法分析，语法分析，语义分析，生成中间代码(intermediate representation )。在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行。
 
 <img src="./images/compile_2.png" width="400">
 
