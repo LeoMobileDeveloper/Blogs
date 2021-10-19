@@ -403,7 +403,7 @@ buildNumber=$(($buildNumber + 1))
 
 <img src="./images/compile_12.png" width="600">
 
-- 然后把这段脚本拷贝进去，并且勾选Run Script Only When installing，保证只有我们在安装到设备上的时候，才会执行这段脚本。重命名脚本的名字为Auto Increase build number
+- 然后把这段脚本拷贝进去，并且勾选Run Script Only When installing，保证只有Archive时才会执行这段脚本。重命名脚本的名字为Auto Increase build number
 
 - 然后，拖动这个脚本的到Link Binary With Libraries下面
 
