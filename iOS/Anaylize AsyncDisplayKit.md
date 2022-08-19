@@ -115,7 +115,7 @@ Objective C++
 
 >Objective C++和Objective C类似，它的文件组成由一个.h和一个.mm组成，你可以使用C＋＋的语法，例如命名空间，由于编译过后会被链接到OC runtime，所以，也可以使用OC的类。
 
-简单来说，利用Objective C＋＋，可以使用C＋＋和OC来混合编程
+简单来说，利用Objective C＋＋，可以使用[C＋＋](https://www.scaler.com/topics/cpp/)和OC来混合编程
 
 
 ------
